@@ -1,6 +1,6 @@
 {
   "name": "@jayjonesdev/react-material-ui-library",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "dependencies": {
     "clsx": "1.1.1"

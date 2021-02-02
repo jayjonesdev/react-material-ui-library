@@ -2,6 +2,7 @@ import React from 'react';
 import { ButtonBar, NavDropdownMenu, NavDropdownMenuItem, NavItem } from '../../components/basic';
 import { AccountCircle as AccountIcon, Settings as SettingsIcon, Email as EmailIcon, CalendarToday as CalendarIcon } from '@material-ui/icons';
 import { IconButton, makeStyles, Typography } from '@material-ui/core';
+import { useLocation } from '@reach/router';
 import { Appbar, Drawer } from '../../components/complex';
 import logo from '../../assets/MenuLogo.png';
 
@@ -34,6 +35,9 @@ const Navigation = () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const menuOpen = Boolean(anchorEl);
+    const location = useLocation();
+
+    const isCurrentPath = (path: string) => path === location.pathname;
 
     const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -69,9 +73,9 @@ const Navigation = () => {
                 </ButtonBar>
             </Appbar>
             <Drawer variant="permanent">
-                <NavItem link="/home/email" text={'Email'} icon={<EmailIcon />} />
-                <NavItem link="/home/system-settings" text={'System Settings'} icon={<SettingsIcon />} />
-                <NavItem link="/home/calendar" text={'Calendar'} icon={<CalendarIcon />} />
+                <NavItem link="/home/email" currentPath={isCurrentPath("/home/email")} text={'Email'} icon={<EmailIcon />} />
+                <NavItem link="/home/system-settings" currentPath={isCurrentPath("/home/system-settings")} text={'System Settings'} icon={<SettingsIcon />} />
+                <NavItem link="/home/calendar" currentPath={isCurrentPath("/home/calendar")} text={'Calendar'} icon={<CalendarIcon />} />
             </Drawer>
         </div>
     )

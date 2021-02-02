@@ -21,5 +21,6 @@ Main.args = {
     text: 'System Settings',
     icon: <SettingsIcon />,
     disabled: false,
-    link: ''
+    link: '',
+    currentPath: false
 };

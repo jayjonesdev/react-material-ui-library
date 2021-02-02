@@ -2708,6 +2708,19 @@ process.env.NODE_ENV !== "production" ? Redirect.propTypes = {
 } : void 0;
 
 ////////////////////////////////////////////////////////////////////////////////
+// Hooks
+
+var useLocation = function useLocation() {
+  var context = React.useContext(LocationContext);
+
+  if (!context) {
+    throw new Error("useLocation hook was used but a LocationContext.Provider was not found in the parent tree. Make sure this is used in a component that is a child of Router");
+  }
+
+  return context.location;
+};
+
+////////////////////////////////////////////////////////////////////////////////
 // Junk
 var stripSlashes = function stripSlashes(str) {
   return str.replace(/(^\/+|\/+$)/g, "");
@@ -2748,7 +2761,7 @@ var shouldNavigate = function shouldNavigate(event) {
   return !event.defaultPrevented && event.button === 0 && !(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 };
 
-core.makeStyles(function (theme) { return ({
+var useStyles$1 = core.makeStyles(function (theme) { return ({
     root: {
         marginBottom: theme.spacing(2),
         display: 'flex',
@@ -2777,7 +2790,18 @@ core.makeStyles(function (theme) { return ({
     }
 }); });
 
-var useStyles$1 = core.makeStyles(function (theme) { return ({
+var NavItem = function (props) {
+    var text = props.text, icon = props.icon, disabled = props.disabled, link = props.link;
+    var classes = useStyles$1();
+    var location = useLocation();
+    var isCurrentPath = function () { return link === location.pathname; };
+    return (jsxRuntime.jsx(React__default['default'].Fragment, { children: disabled ?
+            jsxRuntime.jsxs(core.ListItem, __assign({ className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsxRuntime.jsx(core.ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+                    jsxRuntime.jsx(core.ListItemText, { primary: jsxRuntime.jsx(core.Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) : jsxRuntime.jsxs(core.ListItem, __assign({ button: true, component: Link, to: link, className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsxRuntime.jsx(core.ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+                jsxRuntime.jsx(core.ListItemText, { primary: jsxRuntime.jsx(core.Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) }, void 0));
+};
+
+var useStyles$2 = core.makeStyles(function (theme) { return ({
     root: {
         display: 'flex',
         alignItems: 'center',
@@ -2790,7 +2814,7 @@ var useStyles$1 = core.makeStyles(function (theme) { return ({
 }); });
 
 var PageHeader = function (props) {
-    var classes = useStyles$1();
+    var classes = useStyles$2();
     return (jsxRuntime.jsx("header", __assign({ className: classes.root }, { children: jsxRuntime.jsx(core.Typography, __assign({ variant: 'h4' }, { children: props.text }), void 0) }), void 0));
 };
 
@@ -2834,7 +2858,7 @@ var SimpleDialog = function (props) {
             jsxRuntime.jsx(core.DialogActions, { children: props.children }, void 0)] }), void 0));
 };
 
-var useStyles$2 = styles.makeStyles(function (theme) { return ({
+var useStyles$3 = styles.makeStyles(function (theme) { return ({
     root: {
         display: 'flex',
         alignItems: 'center',
@@ -2849,19 +2873,19 @@ var useStyles$2 = styles.makeStyles(function (theme) { return ({
 }); });
 
 var FlyInHeader = function (props) {
-    var classes = useStyles$2();
+    var classes = useStyles$3();
     return (jsxRuntime.jsxs("div", __assign({ className: classes.root }, { children: [jsxRuntime.jsx(core.Typography, __assign({ variant: 'h6' }, { children: props.title }), void 0),
             jsxRuntime.jsx(core.IconButton, __assign({ onClick: props.onClose }, { children: jsxRuntime.jsx(icons.Close, {}, void 0) }), void 0)] }), void 0));
 };
 
-var useStyles$3 = core.makeStyles(function (theme) { return ({
+var useStyles$4 = core.makeStyles(function (theme) { return ({
     root: {
         borderTop: '1px solid #e7e7e7',
     }
 }); });
 
 var CustomAccordion = function (props) {
-    var classes = useStyles$3();
+    var classes = useStyles$4();
     return (jsxRuntime.jsxs(core.Accordion, __assign({ elevation: 0, className: classes.root }, props, { children: [jsxRuntime.jsx(core.AccordionSummary, __assign({ expandIcon: jsxRuntime.jsx(icons.ExpandMore, {}, void 0) }, { children: jsxRuntime.jsx(core.Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
             jsxRuntime.jsx(core.AccordionDetails, { children: props.children }, void 0)] }), void 0));
 };
@@ -2879,7 +2903,7 @@ var MenuProps = {
 };
 var MultiSelect = function (props) { return (jsxRuntime.jsx(core.Select, __assign({}, props, { multiple: true, input: jsxRuntime.jsx(core.Input, {}, void 0), MenuProps: MenuProps }, { children: props.children }), void 0)); };
 
-var useStyles$4 = core.makeStyles(function (theme) { return ({
+var useStyles$5 = core.makeStyles(function (theme) { return ({
     root: {
         minWidth: 150,
         marginTop: 5
@@ -2893,7 +2917,7 @@ var useStyles$4 = core.makeStyles(function (theme) { return ({
 }); });
 
 var MenuButton = React__default['default'].forwardRef(function (props, ref) {
-    var classes = useStyles$4();
+    var classes = useStyles$5();
     var _a = React__default['default'].useState(null), anchorEl = _a[0], setAnchorEl = _a[1];
     var open = Boolean(anchorEl);
     var color = props.color;
@@ -2919,7 +2943,7 @@ var MenuButton = React__default['default'].forwardRef(function (props, ref) {
                 }, open: open }, { children: jsxRuntime.jsx("div", { children: props.children }, void 0) }), void 0)] }, void 0));
 });
 
-var useStyles$5 = core.makeStyles(function (theme) { return ({
+var useStyles$6 = core.makeStyles(function (theme) { return ({
     root: {
         height: 50,
         padding: theme.spacing(2, 2),
@@ -2938,7 +2962,7 @@ var useStyles$5 = core.makeStyles(function (theme) { return ({
 }); });
 
 var MenuButtonItem = function (props) {
-    var classes = useStyles$5();
+    var classes = useStyles$6();
     return (jsxRuntime.jsx(core.MenuItem, __assign({ color: props.color, onClick: props.onClick, className: classes.root, classes: {
             root: props.color === 'secondary' ? clsx(classes.root, classes.secondary) : clsx(classes.root, classes.primary)
         } }, { children: props.children }), void 0));
@@ -2951,7 +2975,7 @@ var checkbox = core.withStyles(function (theme) { return ({
 }); })(function (props) { return (jsxRuntime.jsx(core.Checkbox, __assign({}, props), void 0)); });
 
 var drawerWidth = 550;
-var useStyles$6 = styles.makeStyles(function (theme) {
+var useStyles$7 = styles.makeStyles(function (theme) {
     var _a;
     return ({
         paper: {
@@ -2998,7 +3022,7 @@ var useStyles$6 = styles.makeStyles(function (theme) {
     });
 });
 var FlyIn = function (props) {
-    var classes = useStyles$6();
+    var classes = useStyles$7();
     var wrapperRef = React__default['default'].useRef(null);
     var open = props.open, onClickAway = props.onClickAway, buttons = props.buttons;
     React__default['default'].useEffect(function () {
@@ -3019,7 +3043,7 @@ var FlyIn = function (props) {
 };
 
 var drawerWidth$1 = 240;
-styles.makeStyles(function (theme) {
+var useStyles$8 = styles.makeStyles(function (theme) {
     var _a;
     return ({
         drawer: {
@@ -3055,7 +3079,25 @@ styles.makeStyles(function (theme) {
     });
 });
 
-core.makeStyles(function (theme) { return ({
+var Drawer = function (props) {
+    var _a, _b;
+    var classes = useStyles$8();
+    var _c = React__default['default'].useState(false), open = _c[0], setOpen = _c[1];
+    var toggleDrawer = function () {
+        setOpen(!open);
+    };
+    return (jsxRuntime.jsx(core.Drawer, __assign({ className: clsx(classes.drawer, (_a = {},
+            _a[classes.drawerOpen] = open,
+            _a[classes.drawerClose] = !open,
+            _a)), classes: {
+            paper: clsx((_b = {},
+                _b[classes.drawerOpen] = open,
+                _b[classes.drawerClose] = !open,
+                _b)),
+        }, onMouseEnter: toggleDrawer, onMouseLeave: toggleDrawer }, props, { children: jsxRuntime.jsx(core.List, __assign({ className: classes.list }, { children: props.children }), void 0) }), void 0));
+};
+
+var useStyles$9 = core.makeStyles(function (theme) { return ({
     appBar: {
         padding: theme.spacing(.5, .5),
         zIndex: theme.zIndex.drawer + 1,
@@ -3067,14 +3109,22 @@ core.makeStyles(function (theme) { return ({
     toolbar: __assign({ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, theme.mixins.toolbar),
 }); });
 
+var Appbar = function (props) {
+    var classes = useStyles$9();
+    return (jsxRuntime.jsx(core.AppBar, __assign({ className: classes.appBar }, props, { children: jsxRuntime.jsx(core.Toolbar, __assign({ className: classes.toolbar }, { children: props.children }), void 0) }), void 0));
+};
+
+exports.Appbar = Appbar;
 exports.ButtonBar = ButtonBar;
 exports.Checkbox = checkbox;
 exports.CustomAccordion = CustomAccordion;
+exports.Drawer = Drawer;
 exports.FlyIn = FlyIn;
 exports.MenuButton = MenuButton;
 exports.MenuButtonItem = MenuButtonItem;
 exports.MultiSelect = MultiSelect;
 exports.NavDropdownMenu = NavDropdownMenu;
 exports.NavDropdownMenuItem = NavDropdownMenuItem;
+exports.NavItem = NavItem;
 exports.PageHeader = PageHeader;
 exports.SimpleDialog = SimpleDialog;

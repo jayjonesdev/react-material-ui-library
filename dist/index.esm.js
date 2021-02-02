@@ -1,6 +1,6 @@
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { makeStyles, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper } from '@material-ui/core';
-import React from 'react';
+import { makeStyles, ListItem, ListItemIcon, ListItemText, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper, Drawer as Drawer$1, List, AppBar, Toolbar } from '@material-ui/core';
+import React, { useContext } from 'react';
 import Menu from '@material-ui/core/Menu';
 import { Close, ExpandMore } from '@material-ui/icons';
 import { makeStyles as makeStyles$1 } from '@material-ui/styles';
@@ -2699,6 +2699,19 @@ process.env.NODE_ENV !== "production" ? Redirect.propTypes = {
 } : void 0;
 
 ////////////////////////////////////////////////////////////////////////////////
+// Hooks
+
+var useLocation = function useLocation() {
+  var context = useContext(LocationContext);
+
+  if (!context) {
+    throw new Error("useLocation hook was used but a LocationContext.Provider was not found in the parent tree. Make sure this is used in a component that is a child of Router");
+  }
+
+  return context.location;
+};
+
+////////////////////////////////////////////////////////////////////////////////
 // Junk
 var stripSlashes = function stripSlashes(str) {
   return str.replace(/(^\/+|\/+$)/g, "");
@@ -2739,7 +2752,7 @@ var shouldNavigate = function shouldNavigate(event) {
   return !event.defaultPrevented && event.button === 0 && !(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
 };
 
-makeStyles(function (theme) { return ({
+var useStyles$1 = makeStyles(function (theme) { return ({
     root: {
         marginBottom: theme.spacing(2),
         display: 'flex',
@@ -2768,7 +2781,18 @@ makeStyles(function (theme) { return ({
     }
 }); });
 
-var useStyles$1 = makeStyles(function (theme) { return ({
+var NavItem = function (props) {
+    var text = props.text, icon = props.icon, disabled = props.disabled, link = props.link;
+    var classes = useStyles$1();
+    var location = useLocation();
+    var isCurrentPath = function () { return link === location.pathname; };
+    return (jsx(React.Fragment, { children: disabled ?
+            jsxs(ListItem, __assign({ className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsx(ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+                    jsx(ListItemText, { primary: jsx(Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) : jsxs(ListItem, __assign({ button: true, component: Link, to: link, className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsx(ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+                jsx(ListItemText, { primary: jsx(Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) }, void 0));
+};
+
+var useStyles$2 = makeStyles(function (theme) { return ({
     root: {
         display: 'flex',
         alignItems: 'center',
@@ -2781,7 +2805,7 @@ var useStyles$1 = makeStyles(function (theme) { return ({
 }); });
 
 var PageHeader = function (props) {
-    var classes = useStyles$1();
+    var classes = useStyles$2();
     return (jsx("header", __assign({ className: classes.root }, { children: jsx(Typography, __assign({ variant: 'h4' }, { children: props.text }), void 0) }), void 0));
 };
 
@@ -2825,7 +2849,7 @@ var SimpleDialog = function (props) {
             jsx(DialogActions, { children: props.children }, void 0)] }), void 0));
 };
 
-var useStyles$2 = makeStyles$1(function (theme) { return ({
+var useStyles$3 = makeStyles$1(function (theme) { return ({
     root: {
         display: 'flex',
         alignItems: 'center',
@@ -2840,19 +2864,19 @@ var useStyles$2 = makeStyles$1(function (theme) { return ({
 }); });
 
 var FlyInHeader = function (props) {
-    var classes = useStyles$2();
+    var classes = useStyles$3();
     return (jsxs("div", __assign({ className: classes.root }, { children: [jsx(Typography, __assign({ variant: 'h6' }, { children: props.title }), void 0),
             jsx(IconButton, __assign({ onClick: props.onClose }, { children: jsx(Close, {}, void 0) }), void 0)] }), void 0));
 };
 
-var useStyles$3 = makeStyles(function (theme) { return ({
+var useStyles$4 = makeStyles(function (theme) { return ({
     root: {
         borderTop: '1px solid #e7e7e7',
     }
 }); });
 
 var CustomAccordion = function (props) {
-    var classes = useStyles$3();
+    var classes = useStyles$4();
     return (jsxs(Accordion, __assign({ elevation: 0, className: classes.root }, props, { children: [jsx(AccordionSummary, __assign({ expandIcon: jsx(ExpandMore, {}, void 0) }, { children: jsx(Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
             jsx(AccordionDetails, { children: props.children }, void 0)] }), void 0));
 };
@@ -2870,7 +2894,7 @@ var MenuProps = {
 };
 var MultiSelect = function (props) { return (jsx(Select, __assign({}, props, { multiple: true, input: jsx(Input, {}, void 0), MenuProps: MenuProps }, { children: props.children }), void 0)); };
 
-var useStyles$4 = makeStyles(function (theme) { return ({
+var useStyles$5 = makeStyles(function (theme) { return ({
     root: {
         minWidth: 150,
         marginTop: 5
@@ -2884,7 +2908,7 @@ var useStyles$4 = makeStyles(function (theme) { return ({
 }); });
 
 var MenuButton = React.forwardRef(function (props, ref) {
-    var classes = useStyles$4();
+    var classes = useStyles$5();
     var _a = React.useState(null), anchorEl = _a[0], setAnchorEl = _a[1];
     var open = Boolean(anchorEl);
     var color = props.color;
@@ -2910,7 +2934,7 @@ var MenuButton = React.forwardRef(function (props, ref) {
                 }, open: open }, { children: jsx("div", { children: props.children }, void 0) }), void 0)] }, void 0));
 });
 
-var useStyles$5 = makeStyles(function (theme) { return ({
+var useStyles$6 = makeStyles(function (theme) { return ({
     root: {
         height: 50,
         padding: theme.spacing(2, 2),
@@ -2929,7 +2953,7 @@ var useStyles$5 = makeStyles(function (theme) { return ({
 }); });
 
 var MenuButtonItem = function (props) {
-    var classes = useStyles$5();
+    var classes = useStyles$6();
     return (jsx(MenuItem, __assign({ color: props.color, onClick: props.onClick, className: classes.root, classes: {
             root: props.color === 'secondary' ? clsx(classes.root, classes.secondary) : clsx(classes.root, classes.primary)
         } }, { children: props.children }), void 0));
@@ -2942,7 +2966,7 @@ var checkbox = withStyles(function (theme) { return ({
 }); })(function (props) { return (jsx(Checkbox, __assign({}, props), void 0)); });
 
 var drawerWidth = 550;
-var useStyles$6 = makeStyles$1(function (theme) {
+var useStyles$7 = makeStyles$1(function (theme) {
     var _a;
     return ({
         paper: {
@@ -2989,7 +3013,7 @@ var useStyles$6 = makeStyles$1(function (theme) {
     });
 });
 var FlyIn = function (props) {
-    var classes = useStyles$6();
+    var classes = useStyles$7();
     var wrapperRef = React.useRef(null);
     var open = props.open, onClickAway = props.onClickAway, buttons = props.buttons;
     React.useEffect(function () {
@@ -3010,7 +3034,7 @@ var FlyIn = function (props) {
 };
 
 var drawerWidth$1 = 240;
-makeStyles$1(function (theme) {
+var useStyles$8 = makeStyles$1(function (theme) {
     var _a;
     return ({
         drawer: {
@@ -3046,7 +3070,25 @@ makeStyles$1(function (theme) {
     });
 });
 
-makeStyles(function (theme) { return ({
+var Drawer = function (props) {
+    var _a, _b;
+    var classes = useStyles$8();
+    var _c = React.useState(false), open = _c[0], setOpen = _c[1];
+    var toggleDrawer = function () {
+        setOpen(!open);
+    };
+    return (jsx(Drawer$1, __assign({ className: clsx(classes.drawer, (_a = {},
+            _a[classes.drawerOpen] = open,
+            _a[classes.drawerClose] = !open,
+            _a)), classes: {
+            paper: clsx((_b = {},
+                _b[classes.drawerOpen] = open,
+                _b[classes.drawerClose] = !open,
+                _b)),
+        }, onMouseEnter: toggleDrawer, onMouseLeave: toggleDrawer }, props, { children: jsx(List, __assign({ className: classes.list }, { children: props.children }), void 0) }), void 0));
+};
+
+var useStyles$9 = makeStyles(function (theme) { return ({
     appBar: {
         padding: theme.spacing(.5, .5),
         zIndex: theme.zIndex.drawer + 1,
@@ -3058,4 +3100,9 @@ makeStyles(function (theme) { return ({
     toolbar: __assign({ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, theme.mixins.toolbar),
 }); });
 
-export { ButtonBar, checkbox as Checkbox, CustomAccordion, FlyIn, MenuButton, MenuButtonItem, MultiSelect, NavDropdownMenu, NavDropdownMenuItem, PageHeader, SimpleDialog };
+var Appbar = function (props) {
+    var classes = useStyles$9();
+    return (jsx(AppBar, __assign({ className: classes.appBar }, props, { children: jsx(Toolbar, __assign({ className: classes.toolbar }, { children: props.children }), void 0) }), void 0));
+};
+
+export { Appbar, ButtonBar, checkbox as Checkbox, CustomAccordion, Drawer, FlyIn, MenuButton, MenuButtonItem, MultiSelect, NavDropdownMenu, NavDropdownMenuItem, NavItem, PageHeader, SimpleDialog };
