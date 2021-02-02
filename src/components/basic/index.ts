@@ -9,6 +9,7 @@ import CustomAccordion from './accordion/accordion';
 import MultiSelect from './multi-select/multi-select';
 import MenuButton from './menu-button/menu-button';
 import MenuButtonItem from './menu-button-item/menu-button-item';
+import Checkbox from './checkbox/checkbox';
 
 export {
     ButtonBar,
@@ -21,5 +22,6 @@ export {
     CustomAccordion,
     MultiSelect,
     MenuButton,
-    MenuButtonItem
+    MenuButtonItem,
+    Checkbox
 }
