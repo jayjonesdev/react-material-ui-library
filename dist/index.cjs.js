@@ -2944,6 +2944,12 @@ var MenuButtonItem = function (props) {
         } }, { children: props.children }), void 0));
 };
 
+var checkbox = core.withStyles(function (theme) { return ({
+    root: {
+        color: theme.palette.primary.main
+    }
+}); })(function (props) { return (jsxRuntime.jsx(core.Checkbox, __assign({}, props), void 0)); });
+
 var drawerWidth = 550;
 var useStyles$6 = styles.makeStyles(function (theme) {
     var _a;
@@ -3062,10 +3068,13 @@ core.makeStyles(function (theme) { return ({
 }); });
 
 exports.ButtonBar = ButtonBar;
+exports.Checkbox = checkbox;
 exports.CustomAccordion = CustomAccordion;
 exports.FlyIn = FlyIn;
 exports.MenuButton = MenuButton;
 exports.MenuButtonItem = MenuButtonItem;
 exports.MultiSelect = MultiSelect;
+exports.NavDropdownMenu = NavDropdownMenu;
+exports.NavDropdownMenuItem = NavDropdownMenuItem;
 exports.PageHeader = PageHeader;
 exports.SimpleDialog = SimpleDialog;

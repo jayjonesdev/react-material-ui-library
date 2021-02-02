@@ -1,4 +1,4 @@
-import { MenuButton, PageHeader, SimpleDialog, MenuButtonItem, MultiSelect, CustomAccordion, ButtonBar, Checkbox } from './basic';
+import { MenuButton, PageHeader, SimpleDialog, MenuButtonItem, MultiSelect, CustomAccordion, ButtonBar, Checkbox, NavDropdownMenu, NavDropdownMenuItem } from './basic';
 import { FlyIn } from './complex';
 
 export {
@@ -10,5 +10,7 @@ export {
     MultiSelect,
     CustomAccordion,
     ButtonBar,
+    NavDropdownMenu,
+    NavDropdownMenuItem,
     Checkbox
 }

@@ -1,5 +1,5 @@
 import { jsx, jsxs } from 'react/jsx-runtime';
-import { makeStyles, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, ClickAwayListener, Slide, Paper } from '@material-ui/core';
+import { makeStyles, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper } from '@material-ui/core';
 import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import { Close, ExpandMore } from '@material-ui/icons';
@@ -2935,6 +2935,12 @@ var MenuButtonItem = function (props) {
         } }, { children: props.children }), void 0));
 };
 
+var checkbox = withStyles(function (theme) { return ({
+    root: {
+        color: theme.palette.primary.main
+    }
+}); })(function (props) { return (jsx(Checkbox, __assign({}, props), void 0)); });
+
 var drawerWidth = 550;
 var useStyles$6 = makeStyles$1(function (theme) {
     var _a;
@@ -3052,4 +3058,4 @@ makeStyles(function (theme) { return ({
     toolbar: __assign({ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }, theme.mixins.toolbar),
 }); });
 
-export { ButtonBar, CustomAccordion, FlyIn, MenuButton, MenuButtonItem, MultiSelect, PageHeader, SimpleDialog };
+export { ButtonBar, checkbox as Checkbox, CustomAccordion, FlyIn, MenuButton, MenuButtonItem, MultiSelect, NavDropdownMenu, NavDropdownMenuItem, PageHeader, SimpleDialog };
