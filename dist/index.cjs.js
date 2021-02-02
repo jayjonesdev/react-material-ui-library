@@ -2708,19 +2708,6 @@ process.env.NODE_ENV !== "production" ? Redirect.propTypes = {
 } : void 0;
 
 ////////////////////////////////////////////////////////////////////////////////
-// Hooks
-
-var useLocation = function useLocation() {
-  var context = React.useContext(LocationContext);
-
-  if (!context) {
-    throw new Error("useLocation hook was used but a LocationContext.Provider was not found in the parent tree. Make sure this is used in a component that is a child of Router");
-  }
-
-  return context.location;
-};
-
-////////////////////////////////////////////////////////////////////////////////
 // Junk
 var stripSlashes = function stripSlashes(str) {
   return str.replace(/(^\/+|\/+$)/g, "");
@@ -2791,13 +2778,11 @@ var useStyles$1 = core.makeStyles(function (theme) { return ({
 }); });
 
 var NavItem = function (props) {
-    var text = props.text, icon = props.icon, disabled = props.disabled, link = props.link;
+    var text = props.text, icon = props.icon, disabled = props.disabled, link = props.link, currentPath = props.currentPath;
     var classes = useStyles$1();
-    var location = useLocation();
-    var isCurrentPath = function () { return link === location.pathname; };
     return (jsxRuntime.jsx(React__default['default'].Fragment, { children: disabled ?
-            jsxRuntime.jsxs(core.ListItem, __assign({ className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsxRuntime.jsx(core.ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
-                    jsxRuntime.jsx(core.ListItemText, { primary: jsxRuntime.jsx(core.Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) : jsxRuntime.jsxs(core.ListItem, __assign({ button: true, component: Link, to: link, className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsxRuntime.jsx(core.ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+            jsxRuntime.jsxs(core.ListItem, __assign({ className: clsx(classes.listitem, classes.root, currentPath ? classes.active : classes.inactive) }, { children: [icon && jsxRuntime.jsx(core.ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+                    jsxRuntime.jsx(core.ListItemText, { primary: jsxRuntime.jsx(core.Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) : jsxRuntime.jsxs(core.ListItem, __assign({ button: true, component: Link, to: link, className: clsx(classes.listitem, classes.root, currentPath ? classes.active : classes.inactive) }, { children: [icon && jsxRuntime.jsx(core.ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
                 jsxRuntime.jsx(core.ListItemText, { primary: jsxRuntime.jsx(core.Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) }, void 0));
 };
 

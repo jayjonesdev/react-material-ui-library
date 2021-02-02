@@ -1,11 +1,10 @@
 import React from "react";
 import { ListItem, ListItemIcon, ListItemText, Typography } from "@material-ui/core";
 import clsx from "clsx";
-import { Link } from '@reach/router';
 import useStyles from './nav-item.style';
 
 const NavItem = (props: IProps) => {
-    const { text, icon, disabled, link, currentPath } = props;
+    const { text, icon, disabled, link, currentPath, component } = props;
     const classes = useStyles();
 
     return (
@@ -15,7 +14,7 @@ const NavItem = (props: IProps) => {
                     className={clsx(classes.listitem, classes.root, currentPath ? classes.active : classes.inactive)} key={text}>
                     {icon && <ListItemIcon className={classes.listitem}>{icon}</ListItemIcon>}
                     <ListItemText primary={<Typography variant={'subtitle1'}>{text}</Typography>} />
-                </ListItem> : <ListItem button component={Link} to={link}
+                </ListItem> : <ListItem button component={component} to={link}
                     className={clsx(classes.listitem, classes.root, currentPath ? classes.active : classes.inactive)} key={text}>
                     {icon && <ListItemIcon className={classes.listitem}>{icon}</ListItemIcon>}
                     <ListItemText primary={<Typography variant={'subtitle1'}>{text}</Typography>} />
@@ -29,6 +28,7 @@ export default NavItem;
 interface IProps {
     text: string;
     link: string;
+    component: React.ElementType<any>;
     icon?: JSX.Element;
     disabled?: boolean
     currentPath?: boolean;

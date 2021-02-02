@@ -9,7 +9,7 @@ Submit a merge request if you have something you want see!
 
 In the project directory, you can run:
 
-### `npm`
+### `npm install`
 
 Install packages to run application.
 

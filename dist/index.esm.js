@@ -1,6 +1,6 @@
 import { jsx, jsxs } from 'react/jsx-runtime';
 import { makeStyles, ListItem, ListItemIcon, ListItemText, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper, Drawer as Drawer$1, List, AppBar, Toolbar } from '@material-ui/core';
-import React, { useContext } from 'react';
+import React from 'react';
 import Menu from '@material-ui/core/Menu';
 import { Close, ExpandMore } from '@material-ui/icons';
 import { makeStyles as makeStyles$1 } from '@material-ui/styles';
@@ -2699,19 +2699,6 @@ process.env.NODE_ENV !== "production" ? Redirect.propTypes = {
 } : void 0;
 
 ////////////////////////////////////////////////////////////////////////////////
-// Hooks
-
-var useLocation = function useLocation() {
-  var context = useContext(LocationContext);
-
-  if (!context) {
-    throw new Error("useLocation hook was used but a LocationContext.Provider was not found in the parent tree. Make sure this is used in a component that is a child of Router");
-  }
-
-  return context.location;
-};
-
-////////////////////////////////////////////////////////////////////////////////
 // Junk
 var stripSlashes = function stripSlashes(str) {
   return str.replace(/(^\/+|\/+$)/g, "");
@@ -2782,13 +2769,11 @@ var useStyles$1 = makeStyles(function (theme) { return ({
 }); });
 
 var NavItem = function (props) {
-    var text = props.text, icon = props.icon, disabled = props.disabled, link = props.link;
+    var text = props.text, icon = props.icon, disabled = props.disabled, link = props.link, currentPath = props.currentPath;
     var classes = useStyles$1();
-    var location = useLocation();
-    var isCurrentPath = function () { return link === location.pathname; };
     return (jsx(React.Fragment, { children: disabled ?
-            jsxs(ListItem, __assign({ className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsx(ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
-                    jsx(ListItemText, { primary: jsx(Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) : jsxs(ListItem, __assign({ button: true, component: Link, to: link, className: clsx(classes.listitem, classes.root, isCurrentPath() ? classes.active : classes.inactive) }, { children: [icon && jsx(ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+            jsxs(ListItem, __assign({ className: clsx(classes.listitem, classes.root, currentPath ? classes.active : classes.inactive) }, { children: [icon && jsx(ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
+                    jsx(ListItemText, { primary: jsx(Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) : jsxs(ListItem, __assign({ button: true, component: Link, to: link, className: clsx(classes.listitem, classes.root, currentPath ? classes.active : classes.inactive) }, { children: [icon && jsx(ListItemIcon, __assign({ className: classes.listitem }, { children: icon }), void 0),
                 jsx(ListItemText, { primary: jsx(Typography, __assign({ variant: 'subtitle1' }, { children: text }), void 0) }, void 0)] }), text) }, void 0));
 };
 
