@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, IconButton } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
-import useStyles from './flyin-header.style';
+import useStyles from './flyinHeader.style';
 
 const FlyInHeader = (props: IProps) => {
     const classes = useStyles();

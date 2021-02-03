@@ -5,7 +5,6 @@ import { ButtonBar, NavDropdownMenu, NavDropdownMenuItem } from '../../component
 import { Appbar } from '../../components/complex';
 import { AccountCircle as AccountIcon } from '@material-ui/icons';
 import { IconButton, makeStyles, Typography } from '@material-ui/core';
-import logo from '../../assets/MenuLogo.png';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -61,7 +60,7 @@ const Template: Story<ComponentProps<typeof Appbar>> = (args) => {
 
     return (
         <Appbar {...args}>
-            <img className={classes.logo} src={logo} alt="logo" />
+            <img className={classes.logo} src={"https://cdn.logo.com/hotlink-ok/logo-social-sq.png"} alt="logo" />
             <ButtonBar>
                 <IconButton
                     color="inherit"

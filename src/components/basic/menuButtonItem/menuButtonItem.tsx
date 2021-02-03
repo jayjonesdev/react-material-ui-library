@@ -1,7 +1,7 @@
 import React from 'react';
 import { MenuItem, MenuItemProps } from '@material-ui/core';
 import clsx from 'clsx';
-import useStyles from './menu-button-item.style';
+import useStyles from './menuButtonItem.style';
 
 const MenuButtonItem = (props: IProps) => {
     const classes = useStyles();

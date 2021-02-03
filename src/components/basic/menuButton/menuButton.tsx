@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button, Menu } from '@material-ui/core';
 import clsx from 'clsx';
-import useStyles from './menu-button.styles';
+import useStyles from './menuButton.styles';
 
 const MenuButton = React.forwardRef((props: IProps, ref: any) => {
     const classes = useStyles();

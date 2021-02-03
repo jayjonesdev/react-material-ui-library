@@ -2,9 +2,8 @@ import React from 'react';
 import { ButtonBar, NavDropdownMenu, NavDropdownMenuItem, NavItem } from '../../components/basic';
 import { AccountCircle as AccountIcon, Settings as SettingsIcon, Email as EmailIcon, CalendarToday as CalendarIcon } from '@material-ui/icons';
 import { IconButton, makeStyles, Typography } from '@material-ui/core';
-import { Link, useLocation } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Appbar, Drawer } from '../../components/complex';
-import logo from '../../assets/MenuLogo.png';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -34,15 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const Navigation = () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-    const location = useLocation();
-    const [currentPath, setCurrentPath] = React.useState<string>(location.pathname);
     const menuOpen = Boolean(anchorEl);
-
-    React.useEffect(() => {        
-        setCurrentPath(location.pathname);
-    }, [location.pathname, setCurrentPath]);
-
-    const isCurrentPath = (path: string) => path === currentPath;
 
     const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -55,7 +46,7 @@ const Navigation = () => {
     return (
         <div className={classes.root}>
             <Appbar position="fixed">
-                <img className={classes.logo} src={logo} alt="logo" />
+                <img className={classes.logo} src={"https://cdn.logo.com/hotlink-ok/logo-social-sq.png"} alt="logo" />
                 <ButtonBar>
                     <IconButton
                         color="inherit"
@@ -77,11 +68,13 @@ const Navigation = () => {
                     </NavDropdownMenu>
                 </ButtonBar>
             </Appbar>
-            <Drawer variant="permanent">
-                <NavItem link="/home/email" component={Link} currentPath={isCurrentPath("/home/email")} text={'Email'} icon={<EmailIcon />} />
-                <NavItem link="/home/system-settings" component={Link} currentPath={isCurrentPath("/home/system-settings")} text={'System Settings'} icon={<SettingsIcon />} />
-                <NavItem link="/home/calendar" component={Link} currentPath={isCurrentPath("/home/calendar")} text={'Calendar'} icon={<CalendarIcon />} />
-            </Drawer>
+            <BrowserRouter>
+                <Drawer variant="permanent">
+                    <NavItem link="/home/email" text={'Email'} icon={<EmailIcon />} />
+                    <NavItem link="/home/system-settings" text={'System Settings'} icon={<SettingsIcon />} />
+                    <NavItem link="/home/calendar" text={'Calendar'} icon={<CalendarIcon />} />
+                </Drawer>
+            </BrowserRouter>
         </div>
     )
 }

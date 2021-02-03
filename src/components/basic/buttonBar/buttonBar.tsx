@@ -1,4 +1,5 @@
-import useStyles from './button-bar.style';
+import React from 'react';
+import useStyles from './buttonBar.style';
 
 const ButtonBar = (props: IProps) => {
     const classes = useStyles();

@@ -3,6 +3,7 @@ import { Story } from '@storybook/react/types-6-0';
 
 import { NavItem } from '../../components/basic';
 import { Settings as SettingsIcon } from '@material-ui/icons';
+import { BrowserRouter } from 'react-router-dom';
 
 // This default export determines where your story goes in the story list
 export default {
@@ -11,9 +12,11 @@ export default {
 };
 
 const Template: Story<ComponentProps<typeof NavItem>> = (args) => (
-    <div style={{ width: 240 }}>
-        <NavItem {...args} />
-    </div>
+    <BrowserRouter>
+        <div style={{ width: 240 }}>
+            <NavItem {...args} />
+        </div>
+    </BrowserRouter>
 );
 
 export const Main = Template.bind({});
@@ -22,5 +25,4 @@ Main.args = {
     icon: <SettingsIcon />,
     disabled: false,
     link: '',
-    currentPath: false
 };
