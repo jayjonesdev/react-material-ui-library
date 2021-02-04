@@ -1,6 +1,6 @@
 {
   "name": "@jayjonesdev/react-material-ui-library",
-  "version": "0.0.9",
+  "version": "0.0.12",
   "private": false,
   "dependencies": {
     "clsx": "1.1.1"
@@ -56,7 +56,7 @@
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],

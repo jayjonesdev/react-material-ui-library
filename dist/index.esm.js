@@ -1,6 +1,6 @@
 import { jsx, jsxs } from 'react/jsx-runtime';
 import React from 'react';
-import { makeStyles, ListItem, ListItemIcon, ListItemText, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper, Drawer as Drawer$1, List, AppBar, Toolbar } from '@material-ui/core';
+import { makeStyles, ListItem, ListItemIcon, ListItemText, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion as Accordion$1, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper, Drawer as Drawer$1, List, AppBar, Toolbar } from '@material-ui/core';
 import { useLocation, Link } from 'react-router-dom';
 import Menu from '@material-ui/core/Menu';
 import { Close, ExpandMore } from '@material-ui/icons';
@@ -196,7 +196,7 @@ var useStyles$3 = makeStyles(function (theme) { return ({
 
 var Accordion = function (props) {
     var classes = useStyles$3();
-    return (jsxs(Accordion, __assign({ elevation: 0, className: classes.root }, props, { children: [jsx(AccordionSummary, __assign({ expandIcon: jsx(ExpandMore, {}, void 0) }, { children: jsx(Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
+    return (jsxs(Accordion$1, __assign({ elevation: 0, className: classes.root }, props, { children: [jsx(AccordionSummary, __assign({ expandIcon: jsx(ExpandMore, {}, void 0) }, { children: jsx(Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
             jsx(AccordionDetails, { children: props.children }, void 0)] }), void 0));
 };
 

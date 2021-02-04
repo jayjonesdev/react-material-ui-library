@@ -1,7 +1,3 @@
-import React from 'react';
-import { MenuProps, MenuItemProps, SelectProps, DialogProps, CheckboxProps, 
-    AccordionProps as MaterialAccordionProps, AppBarProps, DrawerProps, SlideProps } from '@material-ui/core/Menu';
-
 declare module '@jayjonesdev/react-material-ui-library' {
     export interface NavItemProps {
         text: string;
@@ -11,9 +7,9 @@ declare module '@jayjonesdev/react-material-ui-library' {
     };
     export const NavItem: React.FC<NavItemProps>;
 
-    export const NavDropdownMenu: React.FC<MenuProps>; 
-    export const NavDropdownMenuItem: React.FC<MenuItemProps>; 
-    export const MultiSelect: React.FC<SelectProps>; 
+    export const NavDropdownMenu: React.FC<import('@material-ui/core').MenuProps>; 
+    export const NavDropdownMenuItem: React.FC<import('@material-ui/core').MenuItemProps>; 
+    export const MultiSelect: React.FC<import('@material-ui/core').SelectProps>; 
 
     export interface MenuButtonProps {
         icon?: JSX.Element;
@@ -27,34 +23,34 @@ declare module '@jayjonesdev/react-material-ui-library' {
     };
     export const MenuButton: React.FC<MenuButtonProps>;
 
-    export interface MenuButtonItemProps extends MenuItemProps {
+    export interface MenuButtonItemProps extends import('@material-ui/core').MenuItemProps {
         color?: 'default' | 'inherit' | 'primary' | 'secondary';
         variant?: 'contained' | 'outlined' | 'text';
     };
     export const MenuButtonItem: React.FC<MenuButtonItemProps>;
 
-    export interface SimpleDialogProps extends DialogProps {
+    export interface SimpleDialogProps extends import('@material-ui/core').DialogProps {
         title: string;
         content: string;
     };
     export const SimpleDialog: React.FC<SimpleDialogProps>;
 
-    export const Checkbox: React.FC<CheckboxProps>;
+    export const Checkbox: React.FC<import('@material-ui/core').CheckboxProps>;
 
     export interface ButtonBarProps {
         children: React.ReactNode;
     };
     export const ButtonBar: React.FC<ButtonBarProps>;
 
-    export interface AccordionProps extends MaterialAccordionProps {
+    export interface AccordionProps extends import('@material-ui/core').AccordionProps {
         title: string;
     };
     export const Accordion: React.FC<AccordionProps>;
 
-    export const Appbar: React.FC<AppBarProps>;
-    export const Drawer: React.FC<DrawerProps>;
+    export const Appbar: React.FC<import('@material-ui/core').AppBarProps>;
+    export const Drawer: React.FC<import('@material-ui/core').DrawerProps>;
 
-    export interface FlyinProps extends SlideProps {
+    export interface FlyinProps extends import('@material-ui/core').SlideProps {
         title: string;
         open: boolean;
         onClickAway: () => void;
