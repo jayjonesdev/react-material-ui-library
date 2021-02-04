@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) => ({
 
 }));
 
-const FlyIn = (props: IProps) => {
+const Flyin = (props: IProps) => {
     const classes = useStyles();
     const wrapperRef = React.useRef<any>(null);
     const { open, onClickAway, buttons } = props;
@@ -85,7 +85,7 @@ const FlyIn = (props: IProps) => {
     )
 }
 
-export default FlyIn;
+export default Flyin;
 
 interface IProps extends SlideProps {
     title: string;

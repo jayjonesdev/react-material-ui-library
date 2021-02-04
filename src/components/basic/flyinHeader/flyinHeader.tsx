@@ -3,7 +3,7 @@ import { Typography, IconButton } from '@material-ui/core';
 import { Close } from '@material-ui/icons';
 import useStyles from './flyinHeader.style';
 
-const FlyInHeader = (props: IProps) => {
+const FlyInHeader: React.FC<IProps> = (props) => {
     const classes = useStyles();
 
     return (

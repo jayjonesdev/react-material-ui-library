@@ -1,6 +1,6 @@
 import { jsx, jsxs } from 'react/jsx-runtime';
 import React from 'react';
-import { makeStyles, ListItem, ListItemIcon, ListItemText, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, Accordion, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper, Drawer as Drawer$1, List, AppBar, Toolbar } from '@material-ui/core';
+import { makeStyles, ListItem, ListItemIcon, ListItemText, Typography, withStyles, MenuItem, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, IconButton, AccordionSummary, AccordionDetails, Select, Input, Button, Menu as Menu$1, Checkbox, ClickAwayListener, Slide, Paper, Drawer as Drawer$1, List, AppBar, Toolbar } from '@material-ui/core';
 import { useLocation, Link } from 'react-router-dom';
 import Menu from '@material-ui/core/Menu';
 import { Close, ExpandMore } from '@material-ui/icons';
@@ -194,7 +194,7 @@ var useStyles$3 = makeStyles(function (theme) { return ({
     }
 }); });
 
-var CustomAccordion = function (props) {
+var Accordion = function (props) {
     var classes = useStyles$3();
     return (jsxs(Accordion, __assign({ elevation: 0, className: classes.root }, props, { children: [jsx(AccordionSummary, __assign({ expandIcon: jsx(ExpandMore, {}, void 0) }, { children: jsx(Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
             jsx(AccordionDetails, { children: props.children }, void 0)] }), void 0));
@@ -331,7 +331,7 @@ var useStyles$6 = makeStyles$1(function (theme) {
         },
     });
 });
-var FlyIn = function (props) {
+var Flyin = function (props) {
     var classes = useStyles$6();
     var wrapperRef = React.useRef(null);
     var open = props.open, onClickAway = props.onClickAway, buttons = props.buttons;
@@ -424,4 +424,4 @@ var Appbar = function (props) {
     return (jsx(AppBar, __assign({ className: classes.appBar }, props, { children: jsx(Toolbar, __assign({ className: classes.toolbar }, { children: props.children }), void 0) }), void 0));
 };
 
-export { Appbar, ButtonBar, checkbox as Checkbox, CustomAccordion, Drawer, FlyIn, MenuButton, MenuButtonItem, MultiSelect, NavDropdownMenu, NavDropdownMenuItem, NavItem, SimpleDialog };
+export { Accordion, Appbar, ButtonBar, checkbox as Checkbox, Drawer, Flyin, MenuButton, MenuButtonItem, MultiSelect, NavDropdownMenu, NavDropdownMenuItem, NavItem, SimpleDialog };

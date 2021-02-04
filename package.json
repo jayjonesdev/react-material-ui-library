@@ -1,6 +1,6 @@
 {
   "name": "@jayjonesdev/react-material-ui-library",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
   "dependencies": {
     "clsx": "1.1.1"
@@ -24,7 +24,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o public",
     "rollup": "rollup -c",
-    "build:lib": "rollup -c && npm pack"
+    "build:lib": "cp src/index.d.ts dist && rollup -c && npm pack"
   },
   "eslintConfig": {
     "overrides": [
@@ -56,6 +56,7 @@
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
+  "typings": "dist/index.d.ts",
   "files": [
     "dist"
   ],

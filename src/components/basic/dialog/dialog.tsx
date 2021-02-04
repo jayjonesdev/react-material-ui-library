@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle } from '@material-ui/core';
 
-const SimpleDialog: React.FunctionComponent<IProps> = (props) => {
+const SimpleDialog: React.FC<IProps> = (props) => {
     const { title, content } = props;
     return (
         <Dialog {...props}>

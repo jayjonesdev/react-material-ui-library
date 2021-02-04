@@ -4,7 +4,7 @@ import clsx from "clsx";
 import useStyles from './navItem.style';
 import { Link, useLocation } from "react-router-dom";
 
-const NavItem = (props: IProps) => {
+const NavItem: React.FC<IProps> = (props) => {
     const { text, icon, disabled, link } = props;
     const classes = useStyles();
     const location = useLocation()

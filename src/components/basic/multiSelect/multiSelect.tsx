@@ -13,7 +13,7 @@ const MenuProps = {
     getContentAnchorEl: null
 };
 
-const MultiSelect = (props: SelectProps) => (
+const MultiSelect: React.FC<SelectProps> = (props) => (
     <Select
         {...props}
         multiple

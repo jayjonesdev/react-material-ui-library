@@ -3,18 +3,18 @@
 import React, { ComponentProps } from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
-import { CustomAccordion } from '../../components/basic';
+import { Accordion } from '../../components/basic';
 
 // This default export determines where your story goes in the story list
 export default {
     title: 'Misc/Accordion',
-    component: CustomAccordion
+    component: Accordion
 };
 
-const Template: Story<ComponentProps<typeof CustomAccordion>> = (args) => (
-    <CustomAccordion {...args}>
+const Template: Story<ComponentProps<typeof Accordion>> = (args) => (
+    <Accordion {...args}>
         Content
-    </CustomAccordion>
+    </Accordion>
 );
 
 export const Main = Template.bind({});

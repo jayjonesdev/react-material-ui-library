@@ -203,9 +203,9 @@ var useStyles$3 = core.makeStyles(function (theme) { return ({
     }
 }); });
 
-var CustomAccordion = function (props) {
+var Accordion = function (props) {
     var classes = useStyles$3();
-    return (jsxRuntime.jsxs(core.Accordion, __assign({ elevation: 0, className: classes.root }, props, { children: [jsxRuntime.jsx(core.AccordionSummary, __assign({ expandIcon: jsxRuntime.jsx(icons.ExpandMore, {}, void 0) }, { children: jsxRuntime.jsx(core.Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
+    return (jsxRuntime.jsxs(Accordion, __assign({ elevation: 0, className: classes.root }, props, { children: [jsxRuntime.jsx(core.AccordionSummary, __assign({ expandIcon: jsxRuntime.jsx(icons.ExpandMore, {}, void 0) }, { children: jsxRuntime.jsx(core.Typography, __assign({ variant: 'body1' }, { children: props.title }), void 0) }), void 0),
             jsxRuntime.jsx(core.AccordionDetails, { children: props.children }, void 0)] }), void 0));
 };
 
@@ -340,7 +340,7 @@ var useStyles$6 = styles.makeStyles(function (theme) {
         },
     });
 });
-var FlyIn = function (props) {
+var Flyin = function (props) {
     var classes = useStyles$6();
     var wrapperRef = React__default['default'].useRef(null);
     var open = props.open, onClickAway = props.onClickAway, buttons = props.buttons;
@@ -433,12 +433,12 @@ var Appbar = function (props) {
     return (jsxRuntime.jsx(core.AppBar, __assign({ className: classes.appBar }, props, { children: jsxRuntime.jsx(core.Toolbar, __assign({ className: classes.toolbar }, { children: props.children }), void 0) }), void 0));
 };
 
+exports.Accordion = Accordion;
 exports.Appbar = Appbar;
 exports.ButtonBar = ButtonBar;
 exports.Checkbox = checkbox;
-exports.CustomAccordion = CustomAccordion;
 exports.Drawer = Drawer;
-exports.FlyIn = FlyIn;
+exports.Flyin = Flyin;
 exports.MenuButton = MenuButton;
 exports.MenuButtonItem = MenuButtonItem;
 exports.MultiSelect = MultiSelect;

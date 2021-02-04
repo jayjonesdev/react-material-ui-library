@@ -3,7 +3,7 @@ import { MenuItem, MenuItemProps } from '@material-ui/core';
 import clsx from 'clsx';
 import useStyles from './menuButtonItem.style';
 
-const MenuButtonItem = (props: IProps) => {
+const MenuButtonItem:React.FC<IProps> = (props) => {
     const classes = useStyles();
 
     return (

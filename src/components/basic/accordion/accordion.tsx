@@ -3,7 +3,7 @@ import { Accordion, AccordionDetails, AccordionProps, AccordionSummary, Typograp
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
 import useStyles from './accordion.style';
 
-const CustomAccordion: React.FunctionComponent<IProps> = (props) => {
+const Accordion: React.FC<IProps> = (props) => {
     const classes = useStyles();
 
     return (
@@ -18,7 +18,7 @@ const CustomAccordion: React.FunctionComponent<IProps> = (props) => {
     )
 }
 
-export default CustomAccordion;
+export default Accordion;
 
 interface IProps extends AccordionProps {
     title: string;

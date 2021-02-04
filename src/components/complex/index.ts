@@ -1,9 +1,9 @@
-import FlyIn from './flyin/flyin';
+import Flyin from './flyin/flyin';
 import Drawer from './drawer/drawer';
 import Appbar from './appbar/appbar';
 
 export {
-    FlyIn,
+    Flyin,
     Drawer,
     Appbar
 }

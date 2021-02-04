@@ -1,13 +1,13 @@
-import { NavItem, MenuButton, SimpleDialog, MenuButtonItem, MultiSelect, CustomAccordion, ButtonBar, Checkbox, NavDropdownMenu, NavDropdownMenuItem } from './basic';
-import { FlyIn, Appbar, Drawer } from './complex';
+import { NavItem, MenuButton, SimpleDialog, MenuButtonItem, MultiSelect, Accordion, ButtonBar, Checkbox, NavDropdownMenu, NavDropdownMenuItem } from './basic';
+import { Flyin, Appbar, Drawer } from './complex';
 
 export {
     MenuButton,
     SimpleDialog,
-    FlyIn,
+    Flyin,
     MenuButtonItem,
     MultiSelect,
-    CustomAccordion,
+    Accordion,
     ButtonBar,
     NavDropdownMenu,
     NavDropdownMenuItem,
