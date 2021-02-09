@@ -14,7 +14,7 @@ const NavDropdownMenuItem = withStyles((theme) => ({
             },
         },
         '&:hover': {
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.primary.main,
         }
     },
 }))(MenuItem);

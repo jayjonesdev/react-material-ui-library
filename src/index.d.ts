@@ -7,9 +7,9 @@ declare module '@jayjonesdev/react-material-ui-library' {
     };
     export const NavItem: React.FC<NavItemProps>;
 
-    export const NavDropdownMenu: React.FC<import('@material-ui/core').MenuProps>; 
-    export const NavDropdownMenuItem: React.FC<import('@material-ui/core').MenuItemProps>; 
-    export const MultiSelect: React.FC<import('@material-ui/core').SelectProps>; 
+    export const NavDropdownMenu: React.FC<import('@material-ui/core').MenuProps>;
+    export const NavDropdownMenuItem: React.FC<import('@material-ui/core').MenuItemProps>;
+    export const MultiSelect: React.FC<import('@material-ui/core').TextFieldProps & { readOnly?: boolean }>;
 
     export interface MenuButtonProps {
         icon?: JSX.Element;
@@ -23,17 +23,17 @@ declare module '@jayjonesdev/react-material-ui-library' {
     };
     export const MenuButton: React.FC<MenuButtonProps>;
 
-    export interface MenuButtonItemProps extends import('@material-ui/core').MenuItemProps {
+    export interface MenuButtonItemProps {
         color?: 'default' | 'inherit' | 'primary' | 'secondary';
         variant?: 'contained' | 'outlined' | 'text';
     };
-    export const MenuButtonItem: React.FC<MenuButtonItemProps>;
+    export const MenuButtonItem: React.FC<MenuButtonItemProps & import('@material-ui/core').MenuItemProps>;
 
-    export interface SimpleDialogProps extends import('@material-ui/core').DialogProps {
+    export interface SimpleDialogProps {
         title: string;
         content: string;
     };
-    export const SimpleDialog: React.FC<SimpleDialogProps>;
+    export const SimpleDialog: React.FC<SimpleDialogProps & import('@material-ui/core').DialogProps>;
 
     export const Checkbox: React.FC<import('@material-ui/core').CheckboxProps>;
 
@@ -42,19 +42,51 @@ declare module '@jayjonesdev/react-material-ui-library' {
     };
     export const ButtonBar: React.FC<ButtonBarProps>;
 
-    export interface AccordionProps extends import('@material-ui/core').AccordionProps {
+    export interface AccordionProps {
         title: string;
     };
-    export const Accordion: React.FC<AccordionProps>;
+    export const Accordion: React.FC<AccordionProps & import('@material-ui/core').AccordionProps>;
 
     export const Appbar: React.FC<import('@material-ui/core').AppBarProps>;
     export const Drawer: React.FC<import('@material-ui/core').DrawerProps>;
 
-    export interface FlyinProps extends import('@material-ui/core').SlideProps {
+    export interface FlyinProps {
         title: string;
         open: boolean;
         onClickAway: () => void;
         buttons?: React.ReactNode;
     };
-    export const Flyin: React.FC<FlyinProps>;
+    export const Flyin: React.FC<FlyinProps & import('@material-ui/core').SlideProps>;
+
+    export const DatePicker: React.FC<import('@material-ui/pickers').KeyboardDatePickerProps>;
+    export const Select: React.FC<{ readOnly?: boolean }>;
+    export const Multiline: React.FC<{ readOnly?: boolean }>;
+
+    export interface FormInputProps {
+        label: string;
+        name: string;
+        inputType: 'text' | 'select' | 'multiselect' | 'checkbox' | 'multiline' | 'date';
+        type: 'number' | 'text' | 'password' | 'email' | 'date';
+        initialValue: string | number | boolean | string[];
+        options?: { value: string; label: string }[];
+        disablePast?: boolean;
+        clearable?: boolean;
+        disableFuture?: boolean;
+        minDate?: string;
+        dateFormat?: string;
+    }
+    export interface FormProps {
+        validationSchema: import('yup').ObjectSchema<any>;
+        inputs: FormInputProps[];
+        color?: 'primary' | 'secondary';
+        variant?: 'filled' | 'outlined' | 'standard';
+        size?: 'medium' | 'small';
+        margin?: 'normal' | 'none' | 'dense';
+        buttonVariant?: 'text' | 'outlined' | 'contained';
+        buttonText: string[];
+        readOnly?: boolean;
+        className: string;
+        onSubmit: (values: { [key: string]: string | number | boolean | string[] }) => void;
+    }
+    export const Form: React.FC<FormProps>;
 }

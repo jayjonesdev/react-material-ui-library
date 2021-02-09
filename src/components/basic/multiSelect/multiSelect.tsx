@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Select, SelectProps } from '@material-ui/core';
+import { TextFieldProps, TextField } from '@material-ui/core';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -13,15 +13,19 @@ const MenuProps = {
     getContentAnchorEl: null
 };
 
-const MultiSelect: React.FC<SelectProps> = (props) => (
-    <Select
+export default (props: IProps & TextFieldProps) => (
+    <TextField
         {...props}
-        multiple
-        input={<Input />}
-        MenuProps={MenuProps}
+        select
+        SelectProps={{
+            multiple: true, MenuProps: MenuProps, readOnly: props.readOnly,
+            renderValue: (selected) => (selected as string[]).join(', ')
+        }}
     >
         {props.children}
-    </Select>
+    </TextField>
 );
 
-export default MultiSelect;
+interface IProps {
+    readOnly?: boolean;
+}

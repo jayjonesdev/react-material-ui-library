@@ -3,7 +3,7 @@ import { MenuItem, MenuItemProps } from '@material-ui/core';
 import clsx from 'clsx';
 import useStyles from './menuButtonItem.style';
 
-const MenuButtonItem:React.FC<IProps> = (props) => {
+const MenuButtonItem:React.FC<IProps & MenuItemProps> = (props) => {
     const classes = useStyles();
 
     return (
@@ -22,7 +22,7 @@ const MenuButtonItem:React.FC<IProps> = (props) => {
 
 export default MenuButtonItem;
 
-interface IProps extends MenuItemProps {
+interface IProps {
     color?: 'default' | 'inherit' | 'primary' | 'secondary';
     variant?: 'contained' | 'outlined' | 'text';
 }

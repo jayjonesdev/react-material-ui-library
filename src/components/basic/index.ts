@@ -9,6 +9,9 @@ import MultiSelect from './multiSelect/multiSelect';
 import MenuButton from './menuButton/menuButton';
 import MenuButtonItem from './menuButtonItem/menuButtonItem';
 import Checkbox from './checkbox/checkbox';
+import DatePicker from './datePicker/datePicker';
+import Select from './select/select';
+import Multiline from './multiline/multiline';
 
 export {
     ButtonBar,
@@ -21,5 +24,8 @@ export {
     MultiSelect,
     MenuButton,
     MenuButtonItem,
-    Checkbox
+    Checkbox,
+    DatePicker,
+    Select,
+    Multiline
 }

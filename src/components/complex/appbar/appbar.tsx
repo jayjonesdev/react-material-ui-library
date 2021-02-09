@@ -2,7 +2,7 @@ import React from 'react';
 import { AppBar, AppBarProps, Toolbar } from '@material-ui/core';
 import useStyles from './appbar.style';
 
-const Appbar = (props: AppBarProps) => {
+const Appbar: React.FC<AppBarProps> = (props) => {
     const classes = useStyles();
 
     return (

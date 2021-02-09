@@ -1,7 +1,7 @@
 import React from 'react';
 import { Dialog, DialogActions, DialogContent, DialogContentText, DialogProps, DialogTitle } from '@material-ui/core';
 
-const SimpleDialog: React.FC<IProps> = (props) => {
+const SimpleDialog: React.FC<IProps & DialogProps> = (props) => {
     const { title, content } = props;
     return (
         <Dialog {...props}>
@@ -16,7 +16,7 @@ const SimpleDialog: React.FC<IProps> = (props) => {
 
 export default SimpleDialog;
 
-interface IProps extends DialogProps {
+interface IProps {
     title: string;
     content: string;
 }

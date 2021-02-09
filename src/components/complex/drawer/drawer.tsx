@@ -3,7 +3,7 @@ import { DrawerProps, List, Drawer as MaterialDrawer } from '@material-ui/core';
 import clsx from 'clsx';
 import useStyles from './drawer.style';
 
-const Drawer = (props: DrawerProps) => {
+const Drawer: React.FC<DrawerProps> = (props) => {
     const classes = useStyles();
     const [open, setOpen] = React.useState<boolean>(false);
     const toggleDrawer = () => {

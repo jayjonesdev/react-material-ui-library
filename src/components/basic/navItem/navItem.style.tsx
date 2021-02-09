@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         '&:hover': {
-            backgroundColor: theme.palette.primary.dark,
+            backgroundColor: theme.palette.primary.main,
             '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
                 color: theme.palette.common.white,
             },
