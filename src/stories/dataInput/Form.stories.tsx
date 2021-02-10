@@ -98,8 +98,22 @@ const validationSchema: yup.ObjectSchema<any> = yup.object({
     notes: yup
         .string()
         .max(255, 'Notes should be a maximum of 255 characters'),
-    dateOfBirth: yup
+    date: yup
+        .date(),
+    dateTime: yup
+        .date(),
+    time: yup
         .date()
+        .required(),
+    tags: yup
+        .array(),
+    activeAccount: yup
+        .boolean(),
+    id: yup
+        .number(),
+    phoneNumber: yup
+        .string()
+        .required('Please enter valid number')
 });
 
 const inputs = [
@@ -116,11 +130,29 @@ const inputs = [
         type: 'password' as const,
         initialValue: ''
     }, {
-        label: 'Date of Birth',
-        name: 'dateOfBirth',
+        label: 'Date',
+        name: 'date',
         inputType: 'date' as const,
         type: 'date' as const,
         initialValue: new Date().toLocaleDateString()
+    }, {
+        label: 'Date Time',
+        name: 'dateTime',
+        inputType: 'datetime' as const,
+        type: 'date' as const,
+        initialValue: new Date()
+    }, {
+        label: 'Time',
+        name: 'time',
+        inputType: 'time' as const,
+        type: 'text' as const,
+        initialValue: new Date()
+    }, {
+        label: 'Phone Number',
+        name: 'phoneNumber',
+        inputType: 'phone' as const,
+        type: 'text' as const,
+        initialValue: ''
     }, {
         label: 'Account Type',
         name: 'accountType',
@@ -157,6 +189,18 @@ const inputs = [
                 value: 'Windows 10'
             }
         ]
+    }, {
+        label: 'Active Account',
+        name: 'activeAccount',
+        inputType: 'checkbox' as const,
+        type: 'text' as const,
+        initialValue: true
+    }, {
+        label: 'id',
+        name: 'id',
+        inputType: 'id' as const,
+        type: 'number' as const,
+        initialValue: 1
     }
 ]
 
@@ -165,6 +209,5 @@ Main.args = {
     validationSchema: validationSchema,
     inputs: inputs,
     buttonText: ['Cancel', 'Save'],
-    readOnly: false,
     onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
 };

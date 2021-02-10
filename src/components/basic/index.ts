@@ -10,6 +10,8 @@ import MenuButton from './menuButton/menuButton';
 import MenuButtonItem from './menuButtonItem/menuButtonItem';
 import Checkbox from './checkbox/checkbox';
 import DatePicker from './datePicker/datePicker';
+import TimePicker from './timePicker/timePicker';
+import DateTimePicker from './dateTimePicker/dateTimePicker';
 import Select from './select/select';
 import Multiline from './multiline/multiline';
 
@@ -27,5 +29,7 @@ export {
     Checkbox,
     DatePicker,
     Select,
-    Multiline
+    Multiline,
+    TimePicker,
+    DateTimePicker
 }

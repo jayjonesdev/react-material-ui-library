@@ -35,7 +35,7 @@ declare module '@jayjonesdev/react-material-ui-library' {
     };
     export const SimpleDialog: React.FC<SimpleDialogProps & import('@material-ui/core').DialogProps>;
 
-    export const Checkbox: React.FC<import('@material-ui/core').CheckboxProps>;
+    export const Checkbox: React.FC<{ label: string; } & import('@material-ui/core').CheckboxProps>;
 
     export interface ButtonBarProps {
         children: React.ReactNode;
@@ -59,21 +59,26 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export const Flyin: React.FC<FlyinProps & import('@material-ui/core').SlideProps>;
 
     export const DatePicker: React.FC<import('@material-ui/pickers').KeyboardDatePickerProps>;
+    export const TimePicker: React.FC<import('@material-ui/pickers').KeyboardTimePickerProps>;
+    export const DateTimePicker: React.FC<import('@material-ui/pickers').KeyboardDateTimePickerProps>;
     export const Select: React.FC<{ readOnly?: boolean }>;
     export const Multiline: React.FC<{ readOnly?: boolean }>;
 
     export interface FormInputProps {
         label: string;
         name: string;
-        inputType: 'text' | 'select' | 'multiselect' | 'checkbox' | 'multiline' | 'date';
+        inputType: 'text' | 'select' | 'multiselect' | 'checkbox' | 'multiline' | 'date' | 'id' | 'time' | 'datetime' | 'phone';
         type: 'number' | 'text' | 'password' | 'email' | 'date';
-        initialValue: string | number | boolean | string[];
+        initialValue: string | number | boolean | string[] | Date;
         options?: { value: string; label: string }[];
         disablePast?: boolean;
         clearable?: boolean;
         disableFuture?: boolean;
         minDate?: string;
         dateFormat?: string;
+        timeFormat?: string;
+        dateTimeFormat?: string;
+        readOnly?: boolean;
     }
     export interface FormProps {
         validationSchema: import('yup').ObjectSchema<any>;
@@ -84,9 +89,9 @@ declare module '@jayjonesdev/react-material-ui-library' {
         margin?: 'normal' | 'none' | 'dense';
         buttonVariant?: 'text' | 'outlined' | 'contained';
         buttonText: string[];
-        readOnly?: boolean;
-        className: string;
-        onSubmit: (values: { [key: string]: string | number | boolean | string[] }) => void;
+        className?: string;
+        editable?: boolean;
+        onSubmit: (values: { [key: string]: string | number | boolean | string[] | Date }) => void;
     }
     export const Form: React.FC<FormProps>;
 }
