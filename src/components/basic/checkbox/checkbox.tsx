@@ -1,16 +1,16 @@
 import React from 'react';
-import { CheckboxProps, withStyles, Checkbox as MaterialCheckbox, FormControlLabel } from '@material-ui/core';
+import { CheckboxProps, withStyles, Checkbox as MaterialCheckbox, ListItemText } from '@material-ui/core';
 
 export default withStyles(theme => ({
     root: {
         color: theme.palette.primary.main
     }
-}))((props: IProps & CheckboxProps) => (<FormControlLabel
-    control={
+}))((props: IProps & CheckboxProps) => (
+    <div style={{ display: 'flex', alignItems: 'center' }}>
         <MaterialCheckbox {...props} />
-    }
-    label={props.label}
-/>));
+        <ListItemText primary={props.label} />
+    </div>
+));
 
 interface IProps {
     label: string;
