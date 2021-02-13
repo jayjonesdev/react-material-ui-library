@@ -1,89 +1,6 @@
-import React, { ComponentProps } from 'react';
-import { Story } from '@storybook/react/types-6-0';
 import * as yup from 'yup';
-import { Form } from '../../components/complex';
-import { makeStyles } from '@material-ui/core';
 
-// This default export determines where your story goes in the story list
-export default {
-    title: 'Data Input/Form',
-    component: Form,
-    argTypes: {
-        color: {
-            control: {
-                type: 'inline-radio',
-                options: [
-                    'primary',
-                    'secondary',
-                    'default'
-                ],
-            }
-        },
-        variant: {
-            control: {
-                type: 'inline-radio',
-                options: [
-                    'filled',
-                    'outlined',
-                    'standard'
-                ],
-            }
-        },
-        size: {
-            control: {
-                type: 'select',
-                options: [
-                    'small',
-                    'medium'
-                ],
-            }
-        },
-        margin: {
-            control: {
-                type: 'inline-radio',
-                options: [
-                    'normal',
-                    'none',
-                    'dense'
-                ],
-            }
-        },
-        buttonVariant: {
-            control: {
-                type: 'inline-radio',
-                options: [
-                    'text',
-                    'outlined',
-                    'contained'
-                ],
-            }
-        },
-        readOnly: {
-            control: {
-                type: 'inline-radio',
-                options: [
-                    true,
-                    false
-                ],
-            }
-        },
-    }
-};
-
-const Template: Story<ComponentProps<typeof Form>> = (args) => {
-    const useStyles = makeStyles(theme => ({
-        form: {
-            width: '25%'
-        }
-    }));
-    const classes = useStyles();
-
-    return (<Form {...args} className={classes.form} />);
-}
-
-
-
-const validationSchema: yup.ObjectSchema<any> = yup.object({
+export const validationSchema: yup.ObjectSchema<any> = yup.object({
     email: yup
         .string()
         .email('Enter a valid email')
@@ -116,7 +33,7 @@ const validationSchema: yup.ObjectSchema<any> = yup.object({
         .required('Please enter valid number')
 });
 
-const inputs = [
+export const formInputs = [
     {
         label: 'Email',
         name: 'email',
@@ -202,12 +119,65 @@ const inputs = [
         type: 'number' as const,
         initialValue: 1
     }
-]
+];
 
-export const Main = Template.bind({});
-Main.args = {
-    validationSchema: validationSchema,
-    inputs: inputs,
-    buttonText: ['Cancel', 'Save'],
-    onSubmit: (values) => alert(JSON.stringify(values, null, 2)),
+export const argTypes = {
+    color: {
+        control: {
+            type: 'inline-radio',
+            options: [
+                'primary',
+                'secondary',
+                'default'
+            ],
+        }
+    },
+    variant: {
+        control: {
+            type: 'inline-radio',
+            options: [
+                'filled',
+                'outlined',
+                'standard'
+            ],
+        }
+    },
+    size: {
+        control: {
+            type: 'select',
+            options: [
+                'small',
+                'medium'
+            ],
+        }
+    },
+    margin: {
+        control: {
+            type: 'inline-radio',
+            options: [
+                'normal',
+                'none',
+                'dense'
+            ],
+        }
+    },
+    buttonVariant: {
+        control: {
+            type: 'inline-radio',
+            options: [
+                'text',
+                'outlined',
+                'contained'
+            ],
+        }
+    },
+    readOnly: {
+        control: {
+            type: 'inline-radio',
+            options: [
+                true,
+                false
+            ],
+        }
+    },
 };

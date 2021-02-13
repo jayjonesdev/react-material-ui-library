@@ -3,7 +3,6 @@ import { Story } from '@storybook/react/types-6-0';
 
 import { Accordion } from '../../components/basic';
 
-// This default export determines where your story goes in the story list
 export default {
     title: 'Misc/Accordion',
     component: Accordion
@@ -22,5 +21,5 @@ Main.args = {
 // Main.parameters = {
 //     backgrounds: [
 //         { name: 'dark background', value: '#000', default: true }
-//     ]
+//     
 // }

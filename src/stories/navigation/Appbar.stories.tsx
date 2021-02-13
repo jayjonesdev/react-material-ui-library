@@ -6,7 +6,6 @@ import { Appbar } from '../../components/complex';
 import { AccountCircle as AccountIcon } from '@material-ui/icons';
 import { IconButton, makeStyles, Typography } from '@material-ui/core';
 
-// This default export determines where your story goes in the story list
 export default {
     title: 'Navigation/Appbar',
     component: Appbar

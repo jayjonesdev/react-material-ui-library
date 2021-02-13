@@ -30,8 +30,8 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -o public",
-    "rollup": "rollup -c",
-    "build:lib": "cp src/index.d.ts dist && rollup -c && npm pack"
+    "rollup": "mkdir -p dist && cp src/index.d.ts dist && rollup -c",
+    "build:lib": "mkdir -p dist && cp src/index.d.ts dist && rollup -c && npm pack"
   },
   "repository": {
     "url": "https://github.com/jayjonesdev/react-material-ui-library"

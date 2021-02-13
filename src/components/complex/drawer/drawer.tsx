@@ -3,8 +3,9 @@ import { DrawerProps, List, Drawer as MaterialDrawer } from '@material-ui/core';
 import clsx from 'clsx';
 import useStyles from './drawer.style';
 
-const Drawer: React.FC<DrawerProps> = (props) => {
-    const classes = useStyles();
+const Drawer: React.FC<IProps & DrawerProps> = (props) => {
+    const { drawerWidth = 240 } = props;
+    const classes = useStyles({ drawerWidth });
     const [open, setOpen] = React.useState<boolean>(false);
     const toggleDrawer = () => {
         setOpen(!open);
@@ -33,3 +34,7 @@ const Drawer: React.FC<DrawerProps> = (props) => {
 }
 
 export default Drawer;
+
+interface IProps {
+    drawerWidth?: number;
+}

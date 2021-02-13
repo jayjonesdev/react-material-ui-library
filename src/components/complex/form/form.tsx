@@ -2,33 +2,12 @@ import 'date-fns';
 import React from 'react';
 import { useFormik } from 'formik';
 import * as yup from 'yup';
-import { TextField, Button, ButtonGroup, makeStyles, MenuItem, InputAdornment, IconButton } from '@material-ui/core';
+import { TextField, Button, ButtonGroup, MenuItem, InputAdornment, IconButton } from '@material-ui/core';
 import clsx from 'clsx';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import { Checkbox, MultiSelect, DatePicker, Select, Multiline, TimePicker, DateTimePicker } from '../../basic';
 import MaterialUiPhoneNumber from 'material-ui-phone-number';
-
-const useStyles = makeStyles(theme => ({
-    denseButtonGroupMargin: {
-        marginTop: theme.spacing(),
-        marginBottom: theme.spacing(.5),
-        display: 'flex'
-    },
-    normalButtonGroupMargin: {
-        marginTop: theme.spacing(2),
-        marginBottom: theme.spacing(),
-        display: 'flex'
-    },
-    noButtonGroupMargin: {
-        marginTop: 0,
-        marginBottom: 0,
-        display: 'flex'
-    },
-    buttonGroup: {
-        display: 'flex',
-        justifyContent: 'flex-end'
-    }
-}));
+import useStyles from './form.style';
 
 // TODO: default border color and font color and icon color
 const generateInitialValues = (inputs: IInput[]) => {

@@ -23,11 +23,9 @@ export default makeStyles((theme) => ({
     },
     active: {
         backgroundColor: theme.palette.secondary.main,
-
     },
     inactive: {
         backgroundColor: theme.palette.primary.light,
-
     }
 })
 );

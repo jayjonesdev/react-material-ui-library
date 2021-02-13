@@ -14,6 +14,7 @@ import TimePicker from './timePicker/timePicker';
 import DateTimePicker from './dateTimePicker/dateTimePicker';
 import Select from './select/select';
 import Multiline from './multiline/multiline';
+import Page from './page/page';
 
 export {
     ButtonBar,
@@ -31,5 +32,6 @@ export {
     Select,
     Multiline,
     TimePicker,
-    DateTimePicker
+    DateTimePicker,
+    Page
 }

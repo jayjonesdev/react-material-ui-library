@@ -6,22 +6,21 @@ import { Drawer } from '../../components/complex';
 import { BrowserRouter } from 'react-router-dom';
 import { Settings as SettingsIcon, Email as EmailIcon, CalendarToday as CalendarIcon } from '@material-ui/icons';
 
-// This default export determines where your story goes in the story list
 export default {
     title: 'Navigation/Drawer',
     component: Drawer,
-    // argTypes: {
-    //     variant: {
-    //         control: {
-    //             type: 'inline-radio',
-    //             options: [
-    //                 'permanent',
-    //                 'persistent',
-    //                 'temporary'
-    //             ],
-    //         }
-    //     },
-    // }
+    argTypes: {
+        variant: {
+            control: {
+                type: 'inline-radio',
+                options: [
+                    'permanent',
+                    'persistent',
+                    'temporary'
+                ],
+            }
+        },
+    }
 };
 
 const Template: Story<ComponentProps<typeof Drawer>> = (args) => (

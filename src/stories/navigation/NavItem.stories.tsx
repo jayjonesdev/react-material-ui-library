@@ -5,7 +5,6 @@ import { NavItem } from '../../components/basic';
 import { Settings as SettingsIcon } from '@material-ui/icons';
 import { BrowserRouter } from 'react-router-dom';
 
-// This default export determines where your story goes in the story list
 export default {
     title: 'Navigation/Nav Item',
     component: NavItem

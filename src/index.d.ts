@@ -48,13 +48,13 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export const Accordion: React.FC<AccordionProps & import('@material-ui/core').AccordionProps>;
 
     export const Appbar: React.FC<import('@material-ui/core').AppBarProps>;
-    export const Drawer: React.FC<import('@material-ui/core').DrawerProps>;
+    export const Drawer: React.FC<{ drawerWidth?: number } & import('@material-ui/core').DrawerProps>;
 
     export interface FlyinProps {
+        drawerWidth?: number;
         title: string;
         open: boolean;
         onClickAway: () => void;
-        buttons?: React.ReactNode;
     };
     export const Flyin: React.FC<FlyinProps & import('@material-ui/core').SlideProps>;
 
@@ -94,4 +94,13 @@ declare module '@jayjonesdev/react-material-ui-library' {
         onSubmit: (values: { [key: string]: string | number | boolean | string[] | Date }) => void;
     }
     export const Form: React.FC<FormProps>;
+
+    export interface TabBarProps {
+        backgroundColor?: "inherit" | "primary" | "secondary" | "default" | "transparent";
+        children: React.ReactElement<any>[];
+        tabs: { label: string; icon?: React.ReactElement }[];
+    }
+    export const TabBar: React.FC<TabBarProps & import('@material-ui/core').TabProps>;
+
+    export const Page: React.FC<{ children: React.ReactNodeArray }>;
 }
