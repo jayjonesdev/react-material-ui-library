@@ -96,11 +96,12 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export const Form: React.FC<FormProps>;
 
     export interface TabBarProps {
+        position?: "fixed" | "absolute" | "relative" | "static" | "sticky";
         backgroundColor?: "inherit" | "primary" | "secondary" | "default" | "transparent";
-        children: React.ReactElement<any>[];
-        tabs: { label: string; icon?: React.ReactElement }[];
+        children: React.ReactNodeArray;
+        tabs: { label?: string; icon?: React.ReactElement }[];
     }
-    export const TabBar: React.FC<TabBarProps & import('@material-ui/core').TabProps>;
+    export const TabBar: React.FC<TabBarProps & import('@material-ui/core').TabsProps>;
 
-    export const Page: React.FC<{ children: React.ReactNodeArray }>;
+    export const Page: React.FC<{ children: React.ReactNode | React.ReactNodeArray }>;
 }

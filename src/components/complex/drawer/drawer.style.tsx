@@ -3,9 +3,9 @@ import { makeStyles } from "@material-ui/styles";
 
 export default makeStyles((theme: Theme) => ({
     drawer: {
-        width: (props: IStyleProps) => props.drawerWidth,
         flexShrink: 0,
         whiteSpace: 'nowrap',
+        overflowX: 'hidden'
     },
     drawerOpen: {
         width: (props: IStyleProps) => props.drawerWidth,
@@ -13,7 +13,8 @@ export default makeStyles((theme: Theme) => ({
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.enteringScreen,
         }),
-        backgroundColor: theme.palette.primary.light
+        backgroundColor: theme.palette.primary.light,
+        overflowX: 'hidden'
     },
     drawerClose: {
         transition: theme.transitions.create('width', {
