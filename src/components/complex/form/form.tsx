@@ -54,7 +54,7 @@ const Form: React.FC<IProps> = (props) => {
                         value={formik.values[name]}
                         variant={variant}
                         size={size}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         onChange={formik.handleChange}
                         type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
                         InputProps={
@@ -86,7 +86,7 @@ const Form: React.FC<IProps> = (props) => {
                         variant={variant}
                         size={size}
                         rows={5}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         onChange={formik.handleChange}
                         type={type}
                         readOnly={!editable || readOnly}
@@ -104,7 +104,7 @@ const Form: React.FC<IProps> = (props) => {
                         value={formik.values[name]}
                         variant={variant}
                         size={size}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         onChange={formik.handleChange}
                         type={type}
                         readOnly={!editable || readOnly}
@@ -121,7 +121,7 @@ const Form: React.FC<IProps> = (props) => {
                         clearable={clearable}
                         disablePast={disablePast}
                         disableFuture={disableFuture}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         id={name}
                         size={size}
                         name={name}
@@ -143,7 +143,7 @@ const Form: React.FC<IProps> = (props) => {
                         clearable={clearable}
                         disablePast={disablePast}
                         disableFuture={disableFuture}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         id={name}
                         size={size}
                         name={name}
@@ -171,7 +171,7 @@ const Form: React.FC<IProps> = (props) => {
                         type={type}
                         readOnly={!editable || readOnly}
                         error={formik.touched[name] && Boolean(formik.errors[name])}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         size={size}
                         helperText={Boolean(formik.errors[name]) && formik.errors[name]}
                     >
@@ -183,8 +183,8 @@ const Form: React.FC<IProps> = (props) => {
                     </MultiSelect>);
                 case 'checkbox':
                     return (<Checkbox key={index} label={label} color={color} id={name} name={name}
-                        value={formik.values[name] as boolean || false}
-                        readOnly={readOnly}
+                        checked={formik.values[name] as boolean || false}
+                        readOnly={!editable || readOnly}
                         onChange={formik.handleChange}
                     />);
                 case 'time':
@@ -192,7 +192,7 @@ const Form: React.FC<IProps> = (props) => {
                         key={index}
                         fullWidth
                         clearable={clearable}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         id={name}
                         size={size}
                         name={name}
@@ -216,10 +216,11 @@ const Form: React.FC<IProps> = (props) => {
                         name={name}
                         label={label}
                         color={color}
+                        readOnly={!editable || readOnly}
                         value={formik.values[name]}
                         variant={variant}
                         size={size}
-                        margin={margin || 'normal'}
+                        margin={margin}
                         error={Boolean(formik.errors[name]) && formik.touched[name]}
                         helperText={Boolean(formik.errors[name]) && formik.errors[name]}
                     />);
@@ -234,10 +235,10 @@ const Form: React.FC<IProps> = (props) => {
     return (
         <form onSubmit={formik.handleSubmit} className={className}>
             {generateFormFields(inputs)}
-            <ButtonGroup className={clsx(classes.buttonGroup, getButtonGroupClass())}>
+            {editable && <ButtonGroup className={clsx(classes.buttonGroup, getButtonGroupClass())}>
                 <Button color={color} variant={buttonVariant} size={(size === 'medium' || size === undefined) ? 'large' : 'medium'} onClick={() => formik.resetForm()}>{buttonText[0]}</Button>
                 <Button color={color} type="submit" variant={buttonVariant} size={size === 'medium' ? 'large' : 'medium'}>{buttonText[1]}</Button>
-            </ButtonGroup>
+            </ButtonGroup>}
         </form>
     )
 }

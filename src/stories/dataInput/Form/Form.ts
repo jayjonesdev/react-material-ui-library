@@ -171,7 +171,7 @@ export const argTypes = {
             ],
         }
     },
-    readOnly: {
+    editable: {
         control: {
             type: 'inline-radio',
             options: [

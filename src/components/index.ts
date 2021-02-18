@@ -1,7 +1,7 @@
 import {
     NavItem, MenuButton, SimpleDialog, MenuButtonItem, MultiSelect,
     Accordion, ButtonBar, Checkbox, NavDropdownMenu, NavDropdownMenuItem,
-    DatePicker, Select, Multiline, TimePicker, DateTimePicker, Page
+    DatePicker, Select, Multiline, TimePicker, DateTimePicker
 } from './basic';
 import { Flyin, Appbar, Drawer, Form, TabBar } from './complex';
 
@@ -25,6 +25,5 @@ export {
     Multiline,
     TimePicker,
     DateTimePicker,
-    TabBar,
-    Page
+    TabBar
 }
