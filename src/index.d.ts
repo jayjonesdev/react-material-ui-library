@@ -98,10 +98,13 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export interface TabBarProps {
         position?: "fixed" | "absolute" | "relative" | "static" | "sticky";
         backgroundColor?: "inherit" | "primary" | "secondary" | "default" | "transparent";
-        children: React.ReactNodeArray;
         tabs: { label?: string; icon?: React.ReactElement }[];
+        handleChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
     }
     export const TabBar: React.FC<TabBarProps & import('@material-ui/core').TabsProps>;
 
-    export const Page: React.FC<{ children: React.ReactNode | React.ReactNodeArray }>;
+    export interface SearchboxProps {
+        onClear: () => void;
+    }
+    export const Searchbox: React.FC<SearchboxProps & import('@material-ui/core').TextFieldProps>;
 }

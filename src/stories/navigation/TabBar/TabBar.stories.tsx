@@ -8,14 +8,22 @@ export default {
     component: TabBar
 };
 
-const Template: Story<ComponentProps<typeof TabBar>> = (args) => (
-    <div style={{ width: '100%' }}>
-        <TabBar {...args}>
-            {args.tabs.map((tab, index) => <div>Content {index + 1}</div>)}
-        </TabBar>
-    </div>
+const Template: Story<ComponentProps<typeof TabBar>> = (args) => {
+    const [value, setValue] = React.useState(0);
 
-);
+    const handleChange = (event: React.ChangeEvent<{}>, newValue: number): void => {
+        setValue(newValue);
+    };
+    
+    return (
+        <div style={{ width: '100%' }}>
+            <TabBar {...args} value={value} handleChange={handleChange}>
+                {args.tabs.map((tab, index) => <div>Content {index + 1}</div>)}
+            </TabBar>
+        </div>
+    
+    )
+};
 
 export const ScrollableTabs = Template.bind({});
 ScrollableTabs.args = {
@@ -31,7 +39,8 @@ CenteredTabs.args = {
     tabs: centeredTabs,
     indicatorColor: "secondary",
     textColor: "secondary",
-    centered: true
+    centered: true,
+    variant: 'fullWidth'
 };
 
 export const IconTabs = Template.bind({});

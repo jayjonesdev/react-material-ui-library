@@ -3,7 +3,7 @@ import { ButtonBar, NavDropdownMenu, NavDropdownMenuItem, NavItem } from '../../
 import { AccountCircle as AccountIcon, Settings as SettingsIcon, Email as EmailIcon, CalendarToday as CalendarIcon } from '@material-ui/icons';
 import { IconButton, makeStyles, Typography } from '@material-ui/core';
 import { BrowserRouter } from 'react-router-dom';
-import { Appbar, Drawer } from '../../components/complex';
+import { Appbar, Drawer, TabBar } from '../../components/complex';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -21,19 +21,32 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
-        padding: theme.spacing(1, 0),
+        padding: theme.spacing(2, 1),
+        height: '100%',
     },
     logo: {
         height: 42,
         boxSizing: 'border-box'
     }
-}),
-);
+}));
+
+export const centeredTabs = [
+    { label: 'Tab One' },
+    { label: 'Tab Two' },
+    { label: 'Tab Three' },
+    { label: 'Tab Four' },
+    { label: 'Tab Five' },
+];
 
 const Navigation = () => {
     const classes = useStyles();
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const menuOpen = Boolean(anchorEl);
+    const [tabValue, setTabValue] = React.useState(0);
+
+    const handleTabChange = (event: React.ChangeEvent<{}>, newValue: number): void => {
+        setTabValue(newValue);
+    };
 
     const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -70,11 +83,19 @@ const Navigation = () => {
             </Appbar>
             <BrowserRouter>
                 <Drawer variant="permanent">
-                    <NavItem link="/home/email" text={'Email'} icon={<EmailIcon />} />
-                    <NavItem link="/home/system-settings" text={'System Settings'} icon={<SettingsIcon />} />
-                    <NavItem link="/home/calendar" text={'Calendar'} icon={<CalendarIcon />} />
+                    <NavItem link="" text={'Email'} icon={<EmailIcon />} />
+                    <NavItem link="" text={'System Settings'} icon={<SettingsIcon />} />
+                    <NavItem link="" text={'Calendar'} icon={<CalendarIcon />} />
                 </Drawer>
             </BrowserRouter>
+            <main className={classes.content}>
+                <div className={classes.toolbar} />
+                <div>
+                    <TabBar tabs={centeredTabs} value={tabValue} centered variant="fullWidth" handleChange={handleTabChange}>
+                        {centeredTabs.map((tab, index) => <div>Content {index + 1}</div>)}
+                    </TabBar>
+                </div>
+            </main>
         </div>
     )
 }

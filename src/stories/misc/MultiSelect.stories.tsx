@@ -23,7 +23,6 @@ const Template: Story<ComponentProps<typeof MultiSelect>> = (args) => {
         <MultiSelect
             value={values}
             onChange={handleValueChange}
-            renderValue={(selected) => (selected as string[]).join(', ')}
             {...args}>
             {selectValues.map((value) => (
                 <MenuItem key={value} value={value}>

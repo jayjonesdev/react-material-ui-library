@@ -1,5 +1,3 @@
-// MenuButton.stories.tsx
-
 import React, { ComponentProps } from 'react';
 import { Story } from '@storybook/react/types-6-0';
 
