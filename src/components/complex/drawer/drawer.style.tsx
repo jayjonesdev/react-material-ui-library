@@ -1,7 +1,6 @@
-import { Theme } from "@material-ui/core";
-import { makeStyles } from "@material-ui/styles";
+import { makeStyles } from "@material-ui/core";
 
-export default makeStyles((theme: Theme) => ({
+export default makeStyles(theme => ({
     drawer: {
         flexShrink: 0,
         whiteSpace: 'nowrap',

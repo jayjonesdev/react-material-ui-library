@@ -14,10 +14,10 @@ export default createMuiTheme({
             // dark: will be calculated from palette.secondary.main,
             contrastText: '#fff',
         },
-        text: {
-            primary: '#1b344d',
-            secondary: '#fff'
-        },
+        // text: {
+        //     primary: '#fff',
+        //     secondary: '#1b344d'
+        // },
         // Used by `getContrastText()` to maximize the contrast between
         // the background and the text.
         contrastThreshold: 3,

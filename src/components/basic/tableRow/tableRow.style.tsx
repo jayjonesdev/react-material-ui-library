@@ -29,6 +29,6 @@ export default makeStyles(theme => ({
         fontSize: 14,
         fontWeight: 500
     },
-    textColorHover: { color: theme.palette.text.secondary },
-    textColor: { color: theme.palette.text.primary }
+    textColorHover: { color: theme.palette.primary.contrastText },
+    textColor: { color: theme.palette.primary.main }
 }));
