@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import useStyles from './tableHead.style';
 
 export default (props: IProps & TableHeadProps) => {
-    const ROW_SIZE = 20;
+    const ROW_SIZE = 48;
     const classes = useStyles();
     const { columns, onColumnClick } = props;
 
@@ -32,7 +32,7 @@ export default (props: IProps & TableHeadProps) => {
                             onClick={() => onColumnClick(column)}
                         >
                             <Typography variant='body1' style={{
-                                color: 'white', display: 'flex',
+                                color: 'white', display: 'flex', fontWeight: 600,
                                 justifyContent: column.numeric || false ? "flex-end" : "flex-start",
                                 alignContent: 'baseline',
                                 fontSize: 16

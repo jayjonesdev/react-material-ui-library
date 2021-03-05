@@ -4,8 +4,8 @@ export default makeStyles(theme => ({
     root: {
         backgroundColor: (props: IStyleProps) => props.color === 'primary' ? theme.palette.primary.main : theme.palette.secondary.main,
         color: (props: IStyleProps) => props.color === 'primary' ? theme.palette.primary.main : theme.palette.secondary.main,
-        marginBottom: theme.spacing(),
-        height: (props: IStyleProps) => `${props.size}px`
+        height: (props: IStyleProps) => `${props.size}px`,
+        marginBottom: theme.spacing()
     }
 }));
 

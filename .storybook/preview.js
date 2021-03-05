@@ -1,5 +1,5 @@
 import React from "react";
-import { ThemeProvider } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { LocationProvider } from '@reach/router';
 import theme from '../src/theme';
 
@@ -60,6 +60,7 @@ export const decorators = [
   (Story) => (
     <ThemeProvider theme={theme}>
       <LocationProvider>
+        <CssBaseline />
         <Story />
       </LocationProvider>
     </ThemeProvider>

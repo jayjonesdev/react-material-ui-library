@@ -1,4 +1,12 @@
-export const columns = [{
+interface ITableColumn {
+    label: string;
+    dataKey: string;
+    numeric?: boolean;
+    width: string;
+    sort: 'ASC' | 'DESC' | null;
+}
+
+export const columns: ITableColumn[] = [{
     label: "Album",
     dataKey: "title",
     width: '28%',

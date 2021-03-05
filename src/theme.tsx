@@ -15,8 +15,8 @@ export default createMuiTheme({
             contrastText: '#fff',
         },
         text: {
-            primary: 'white',
-            secondary: '#1b344d'
+            primary: '#1b344d',
+            secondary: '#fff'
         },
         // Used by `getContrastText()` to maximize the contrast between
         // the background and the text.

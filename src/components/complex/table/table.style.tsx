@@ -5,20 +5,17 @@ export default makeStyles(theme => ({
       display: "block",
       flex: 1,
       width: '100%',
-      overflowX: 'hidden',
-      overflow: 'none'
+      overflowX: 'hidden'
     },
     table: {
       height: "100%",
       width: "100%",
-      overflowX: 'hidden',
-      overflow: 'none'
+      overflowX: 'hidden'
     },
     list: { overflowX: 'hidden' },
     body: {
       width: "100%",
       backgroundColor: 'white',
-      overflowX: 'hidden',
-      overflow: 'none'
+      overflowX: 'hidden'
     }
   }));

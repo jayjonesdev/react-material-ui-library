@@ -26,32 +26,24 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Template: Story<ComponentProps<typeof Table>> = (args) => {
-    const [width, setWidth] = React.useState<number>(0);
+    // const [width, setWidth] = React.useState<number>(0);
     const [columns, setColumns] = React.useState(defaultColumns);
     const classes = useStyles();
-    // const onColumnClick = (column: any) => {
-    //     const updatedColumns = columns.map(currentColumn => {
-    //         if (currentColumn.label !== column.label) {
-    //             return {
-    //                 ...currentColumn,
-    //                 sort: null
-    //             }
-    //             // currentColumn.sort = null;
-    //         } else {
-    //             return {
-    //                 ...currentColumn,
-    //                 sort: currentColumn.sort === undefined ? 'ASC' : currentColumn.sort === 'ASC' ? 'DESC' : undefined
-    //             }
-    //             // currentColumn.sort = currentColumn.sort === null ? 'ASC' : currentColumn.sort === 'ASC' ? 'DESC' : null;
-    //         }
-    //         // return currentColumn;
-    //     });
-    //     setColumns(updatedColumns);
-    // }
+    const onColumnClick = (column: any) => {
+        const updatedColumns = columns.map(currentColumn => {
+            if (currentColumn.label !== column.label) {
+                currentColumn.sort = null;
+            } else {
+                currentColumn.sort = currentColumn.sort === null ? 'ASC' : currentColumn.sort === 'ASC' ? 'DESC' : null;
+            }
+            return currentColumn;
+        });
+        setColumns(updatedColumns);
+    }
 
     return (
         <div className={classes.root}>
-            <Table {...args} setWidth={setWidth} columns={columns} onColumnClick={() => { }} data={data} />
+            <Table {...args} columns={columns} onColumnClick={onColumnClick} data={data} />
         </div>
     );
 }

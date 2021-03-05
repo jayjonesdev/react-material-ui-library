@@ -32,6 +32,7 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export interface SimpleDialogProps {
         title: string;
         content: string;
+        textColor?: 'textPrimary' | 'textSecondary' | 'primary' | 'secondary'
     };
     export const SimpleDialog: React.FC<SimpleDialogProps & import('@material-ui/core').DialogProps>;
 
@@ -118,10 +119,9 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export interface TableProps {
         columns: ITableColumn[];
         data: any[];
+        key?: string;
         onColumnClick: (column: ITableColumn) => void;
         onRowClick: (item: any) => void;
-        setWidth: (width: number) => void;
-        key: string;
     }
     export const Table: React.FC<TableProps & import('@material-ui/core').TableProps>;
 

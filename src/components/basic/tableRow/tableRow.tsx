@@ -4,7 +4,7 @@ import clsx from 'clsx';
 import useStyles from './tableRow.style';
 
 export default (props: IProps & TableRowProps) => {
-    const ROW_SIZE = 18;
+    const ROW_SIZE = 48;
     const { data, index } = props;
     const { onRowClick, items, columns } = data;
     const classes = useStyles();
@@ -33,7 +33,7 @@ export default (props: IProps & TableRowProps) => {
                             height: ROW_SIZE
                         }}
                     >
-                        <Typography variant={'body2'} noWrap={true} className={hover ? classes.textColorHover : classes.textColor}>
+                        <Typography variant={'body1'} noWrap={true} className={clsx(classes.text, hover ? classes.textColorHover : classes.textColor)}>
                             {((item as any)[column.dataKey]).length === 0 ? 'N/A' : (item as any)[column.dataKey]}
                         </Typography>
                     </TableCell>

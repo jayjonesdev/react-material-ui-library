@@ -25,12 +25,10 @@ export default makeStyles(theme => ({
         textOverflow: 'ellipsis',
         whiteSpace: 'nowrap'
     },
-    textColorHover: {
-        color: theme.palette.text.primary,
-        fontSize: 14
+    text: {
+        fontSize: 14,
+        fontWeight: 500
     },
-    textColor: {
-        color: theme.palette.text.secondary,
-        fontSize: 14
-    }
+    textColorHover: { color: theme.palette.text.secondary },
+    textColor: { color: theme.palette.text.primary }
 }));
