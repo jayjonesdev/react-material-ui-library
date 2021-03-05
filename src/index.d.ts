@@ -107,4 +107,27 @@ declare module '@jayjonesdev/react-material-ui-library' {
         onClear: () => void;
     }
     export const Searchbox: React.FC<SearchboxProps & import('@material-ui/core').TextFieldProps>;
+
+    interface TableColumn {
+        label: string;
+        dataKey: string;
+        numeric?: boolean;
+        width: string;
+        sort: 'ASC' | 'DESC' | null;
+    }
+    export interface TableProps {
+        columns: ITableColumn[];
+        data: any[];
+        onColumnClick: (column: ITableColumn) => void;
+        onRowClick: (item: any) => void;
+        setWidth: (width: number) => void;
+        key: string;
+    }
+    export const Table: React.FC<TableProps & import('@material-ui/core').TableProps>;
+
+    export interface DividerProps {
+        color?: 'primary' | 'secondary';
+        size?: number;
+    }
+    export const Divider: React.FC<DividerProps & import('@material-ui/core').DividerProps>;
 }

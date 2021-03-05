@@ -15,6 +15,9 @@ import DateTimePicker from './dateTimePicker/dateTimePicker';
 import Select from './select/select';
 import Multiline from './multiline/multiline';
 import Searchbox from './searchbox/searchbox';
+import TableRow from './tableRow/tableRow';
+import TableHead from './tableHead/tableHead';
+import Divider from './divider/divider';
 
 export {
     ButtonBar,
@@ -33,5 +36,8 @@ export {
     Multiline,
     TimePicker,
     DateTimePicker,
-    Searchbox
+    Searchbox,
+    TableHead,
+    TableRow,
+    Divider
 }
