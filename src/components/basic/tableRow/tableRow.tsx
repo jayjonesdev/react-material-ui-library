@@ -12,7 +12,7 @@ export default (props: IProps & TableRowProps) => {
     const [hover, setHover] = React.useState<boolean>(false);
 
     return (
-        <TableRow component="div" className={classes.row}
+        <TableRow className={classes.row}
             onClick={() => onRowClick(item)}
             onMouseEnter={() => setHover(true)}
             onMouseLeave={() => setHover(false)} {...props}>
@@ -20,7 +20,6 @@ export default (props: IProps & TableRowProps) => {
                 return (
                     <TableCell
                         key={colIndex}
-                        component="div"
                         variant="body"
                         align={column.numeric || false ? "right" : "left"}
                         className={clsx(

@@ -2,20 +2,24 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles(theme => ({
     root: {
-      display: "block",
-      flex: 1,
-      width: '100%',
-      overflowX: 'hidden'
+        display: "block",
+        height: '100%',
+        width: '100%',
+        overflow: 'hidden'
     },
     table: {
-      height: "100%",
-      width: "100%",
-      overflowX: 'hidden'
+        display: 'table'
+        // flex: 1,
+        // height: "100%",
+        // width: "100%",
     },
-    list: { overflowX: 'hidden' },
+    list: {
+        // overflowY: 'auto'
+        // overflowX: 'hidden'
+    },
     body: {
-      width: "100%",
-      backgroundColor: 'white',
-      overflowX: 'hidden'
+        width: "100%",
+        backgroundColor: 'white',
+        //   overflowX: 'hidden'
     }
-  }));
+}));

@@ -24,12 +24,12 @@ export default (props: IProps & TableProps) => {
     }
 
     return (
-        <TableContainer {...props} component={Paper} className={classes.root}>
-            <Table className={classes.table} component="div">
-                <TableHead columns={columns} onColumnClick={onColumnClick} />
-                <TableBody component="div" className={classes.body}>
-                    <AutoSizer>
-                        {({ height, width }) => (
+        // <TableContainer {...props} component={Paper} className={classes.root}>
+            <AutoSizer>
+                {({ height, width }) => (
+                    <Table className={classes.table}>
+                        <TableHead columns={columns} onColumnClick={onColumnClick} />
+                        <TableBody className={classes.body}>
                             <List
                                 className={classes.list}
                                 height={height}
@@ -41,11 +41,11 @@ export default (props: IProps & TableProps) => {
                             >
                                 {TableRow}
                             </List>
-                        )}
-                    </AutoSizer>
-                </TableBody>
-            </Table>
-        </TableContainer>
+                        </TableBody>
+                    </Table>
+                )}
+            </AutoSizer>
+        // </TableContainer>
     );
 }
 

@@ -10,13 +10,12 @@ export default (props: IProps & TableHeadProps) => {
     const { columns, onColumnClick } = props;
 
     return (
-        <TableHead component="div" className={classes.thead} {...props}>
-            <TableRow component="div" className={clsx(classes.row, classes.headerRow)}>
+        <TableHead className={classes.thead} {...props}>
+            <TableRow className={classes.row}>
                 {columns.map((column, colIndex) => {
                     return (
                         <TableCell
                             key={colIndex}
-                            component="div"
                             variant="head"
                             align={column.numeric || false ? "right" : "left"}
                             className={clsx(
@@ -32,10 +31,10 @@ export default (props: IProps & TableHeadProps) => {
                             onClick={() => onColumnClick(column)}
                         >
                             <Typography variant='body1' style={{
-                                color: 'white', display: 'flex', fontWeight: 600,
+                                color: 'white', display: 'flex', fontWeight: 800,
                                 justifyContent: column.numeric || false ? "flex-end" : "flex-start",
                                 alignContent: 'baseline',
-                                fontSize: 16
+                                fontSize: 18
                             }}>{column.label} {column.sort === null ? (null) : column.sort === 'DESC' ? <ArrowDownward className={classes.icon} />
                                 : <ArrowUpward className={classes.icon} />}
                             </Typography>

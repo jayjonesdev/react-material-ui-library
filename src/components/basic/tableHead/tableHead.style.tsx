@@ -7,10 +7,10 @@ export default makeStyles(theme => ({
         flexWrap: "nowrap",
         alignItems: "center",
         boxSizing: "border-box",
-        minWidth: "100%",
         width: "100%",
+        // overflow: 'hidden'
     },
-    headerRow: { overflowX: 'hidden' },
+    // headerRow: { overflow: 'hidden' },
     cell: {
         display: "block",
         flexGrow: 0,

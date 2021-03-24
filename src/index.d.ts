@@ -62,8 +62,8 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export const DatePicker: React.FC<import('@material-ui/pickers').KeyboardDatePickerProps>;
     export const TimePicker: React.FC<import('@material-ui/pickers').KeyboardTimePickerProps>;
     export const DateTimePicker: React.FC<import('@material-ui/pickers').KeyboardDateTimePickerProps>;
-    export const Select: React.FC<{ readOnly?: boolean }>;
-    export const Multiline: React.FC<{ readOnly?: boolean }>;
+    export const Select: React.FC<{ readOnly?: boolean } & import('@material-ui/core').TextFieldProps>;
+    export const Multiline: React.FC<{ readOnly?: boolean } & import('@material-ui/core').TextFieldProps>;
 
     export interface FormInputProps {
         label: string;

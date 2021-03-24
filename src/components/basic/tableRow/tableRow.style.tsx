@@ -7,12 +7,11 @@ export default makeStyles(theme => ({
         flexWrap: "nowrap",
         alignItems: "baseline",
         boxSizing: "border-box",
-        minWidth: "100%",
         width: "100%",
         '&:hover': {
             backgroundColor: theme.palette.primary.main,
         },
-        cursor: 'pointer'
+        cursor: 'pointer',
     },
     cell: {
         display: "block",
@@ -26,7 +25,7 @@ export default makeStyles(theme => ({
         whiteSpace: 'nowrap'
     },
     text: {
-        fontSize: 14,
+        fontSize: 16,
         fontWeight: 500
     },
     textColorHover: { color: theme.palette.primary.contrastText },
