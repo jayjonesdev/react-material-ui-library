@@ -34,7 +34,6 @@ export default (props: IProps & TableHeadProps) => {
                                 color: 'white', display: 'flex', fontWeight: 800,
                                 justifyContent: column.numeric || false ? "flex-end" : "flex-start",
                                 alignContent: 'baseline',
-                                fontSize: 18
                             }}>{column.label} {column.sort === null ? (null) : column.sort === 'DESC' ? <ArrowDownward className={classes.icon} />
                                 : <ArrowUpward className={classes.icon} />}
                             </Typography>

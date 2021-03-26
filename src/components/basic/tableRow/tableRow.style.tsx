@@ -11,6 +11,9 @@ export default makeStyles(theme => ({
         '&:hover': {
             backgroundColor: theme.palette.primary.main,
         },
+        '&:active': {
+            color: theme.palette.primary.contrastText,
+        },
         cursor: 'pointer',
     },
     cell: {
@@ -25,7 +28,6 @@ export default makeStyles(theme => ({
         whiteSpace: 'nowrap'
     },
     text: {
-        fontSize: 16,
         fontWeight: 500
     },
     textColorHover: { color: theme.palette.primary.contrastText },

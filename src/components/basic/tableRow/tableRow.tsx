@@ -32,7 +32,7 @@ export default (props: IProps & TableRowProps) => {
                             height: ROW_SIZE
                         }}
                     >
-                        <Typography variant={'body1'} noWrap={true} className={clsx(classes.text, hover ? classes.textColorHover : classes.textColor)}>
+                        <Typography variant={'body2'} noWrap={true} className={clsx(classes.text, hover ? classes.textColorHover : classes.textColor)}>
                             {((item as any)[column.dataKey]).length === 0 ? 'N/A' : (item as any)[column.dataKey]}
                         </Typography>
                     </TableCell>
