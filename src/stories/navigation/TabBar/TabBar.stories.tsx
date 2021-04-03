@@ -18,7 +18,7 @@ const Template: Story<ComponentProps<typeof TabBar>> = (args) => {
     return (
         <div style={{ width: '100%' }}>
             <TabBar {...args} value={value} handleChange={handleChange}>
-                {args.tabs.map((tab, index) => <div>Content {index + 1}</div>)}
+                {args.tabs.map((tab, index) => index === value && <div>Content {index + 1}</div>)}
             </TabBar>
         </div>
     
