@@ -10,7 +10,7 @@ const TabBar: React.FC<IProps & TabsProps> = (props) => {
         <AppBar className={classes.appbar} position={position} color={backgroundColor}>
             <Tabs {...props} onChange={handleChange}>
                 {tabs.length > 0 && tabs.map((tab, index) =>
-                    <Tab key={index} id={`label-${index}`} label={tab.label} icon={tab.icon} />)}
+                    <Tab key={index} id={tab.id} label={tab.label} icon={tab.icon} />)}
             </Tabs>
         </AppBar>
     )
@@ -21,6 +21,6 @@ export default TabBar;
 interface IProps {
     position?: "fixed" | "absolute" | "relative" | "static" | "sticky";
     backgroundColor?: "inherit" | "primary" | "secondary" | "default" | "transparent";
-    tabs: { label?: string; icon?: React.ReactElement }[];
+    tabs: { label?: string; icon?: React.ReactElement; id?: string; }[];
     handleChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
 }

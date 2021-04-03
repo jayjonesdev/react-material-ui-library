@@ -99,7 +99,7 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export interface TabBarProps {
         position?: "fixed" | "absolute" | "relative" | "static" | "sticky";
         backgroundColor?: "inherit" | "primary" | "secondary" | "default" | "transparent";
-        tabs: { label?: string; icon?: React.ReactElement }[];
+        tabs: { label?: string; icon?: React.ReactElement; id?: string; }[];
         handleChange: (event: React.ChangeEvent<{}>, newValue: number) => void;
     }
     export const TabBar: React.FC<TabBarProps & import('@material-ui/core').TabsProps>;
