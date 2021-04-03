@@ -2,6 +2,7 @@ import React, { ComponentProps } from 'react';
 import { Story } from '@storybook/react/types-6-0';
 import { TabBar } from '../../../components/complex';
 import { centeredTabs, iconTabs, scrollableTabs } from './TabBar';
+import { Paper } from '@material-ui/core';
 
 export default {
     title: 'Navigation/TabBar',
@@ -16,11 +17,10 @@ const Template: Story<ComponentProps<typeof TabBar>> = (args) => {
     };
     
     return (
-        <div style={{ width: '100%' }}>
-            <TabBar {...args} value={value} handleChange={handleChange}>
-                {args.tabs.map((tab, index) => index === value && <div>Content {index + 1}</div>)}
-            </TabBar>
-        </div>
+        <Paper style={{ width: '100%' }}>
+            <TabBar {...args} value={value} handleChange={handleChange} />
+            {args.tabs.map((tab, index) => index === value && <div>Content {index + 1}</div>)}
+        </Paper>
     
     )
 };

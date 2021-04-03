@@ -12,7 +12,6 @@ const TabBar: React.FC<IProps & TabsProps> = (props) => {
                 {tabs.length > 0 && tabs.map((tab, index) =>
                     <Tab key={index} id={`label-${index}`} label={tab.label} icon={tab.icon} />)}
             </Tabs>
-            {props.children}
         </AppBar>
     )
 };
