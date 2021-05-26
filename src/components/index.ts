@@ -2,7 +2,7 @@ import {
     NavItem, MenuButton, SimpleDialog, MenuButtonItem, MultiSelect,
     Accordion, ButtonBar, Checkbox, NavDropdownMenu, NavDropdownMenuItem,
     DatePicker, Select, Multiline, TimePicker, DateTimePicker, Searchbox,
-    Divider
+    Divider, LoadingOverlay
 } from './basic';
 import { Flyin, Appbar, Drawer, Form, TabBar, Table } from './complex';
 
@@ -29,5 +29,6 @@ export {
     TabBar,
     Searchbox,
     Table,
-    Divider
+    Divider,
+    LoadingOverlay
 }

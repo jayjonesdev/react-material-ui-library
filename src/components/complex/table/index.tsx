@@ -3,7 +3,7 @@ import memoize from "memoize-one";
 import { FixedSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import { Table, TableBody, TableContainer, Paper, TableProps } from "@material-ui/core";
-import useStyles from './table.style';
+import useStyles from './style';
 import { TableHead, TableRow } from '../../basic';
 
 const createItemData = memoize((classes, columns, data, onRowClick) => ({
@@ -23,11 +23,16 @@ export default (props: IProps & TableProps) => {
         return item[key];
     }
 
+    const tableProps = (): TableProps => {
+        let { columns, data, onRowClick, key, onColumnClick, ...rest } = props;
+        return rest;
+    }
+
     return (
         // <TableContainer {...props} component={Paper} className={classes.root}>
             <AutoSizer>
                 {({ height, width }) => (
-                    <Table className={classes.table}>
+                    <Table {...tableProps}>
                         <TableHead columns={columns} onColumnClick={onColumnClick} />
                         <TableBody className={classes.body}>
                             <List

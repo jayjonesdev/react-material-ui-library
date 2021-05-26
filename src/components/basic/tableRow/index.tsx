@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableCell, Typography, TableRow, TableRowProps } from '@material-ui/core';
 import clsx from 'clsx';
-import useStyles from './tableRow.style';
+import useStyles from './style';
 
 export default (props: IProps & TableRowProps) => {
     const ROW_SIZE = 48;
@@ -11,11 +11,19 @@ export default (props: IProps & TableRowProps) => {
     const item = items[index];
     const [hover, setHover] = React.useState<boolean>(false);
 
+    const tableRowProps = (): TableRowProps => {
+        let { data, index, ...rest } = props;
+        return rest;
+    }
+
     return (
-        <TableRow className={classes.row}
+        <TableRow
+            className={classes.row}
             onClick={() => onRowClick(item)}
             onMouseEnter={() => setHover(true)}
-            onMouseLeave={() => setHover(false)} {...props}>
+            onMouseLeave={() => setHover(false)}
+            {...tableRowProps()}
+        >
             {columns.map((column, colIndex) => {
                 return (
                     <TableCell

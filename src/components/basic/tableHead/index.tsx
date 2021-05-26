@@ -2,15 +2,20 @@ import React from 'react';
 import { TableHead, TableCell, Typography, TableRow, TableHeadProps } from '@material-ui/core';
 import { ArrowDownward, ArrowUpward } from '@material-ui/icons';
 import clsx from 'clsx';
-import useStyles from './tableHead.style';
+import useStyles from './style';
 
 export default (props: IProps & TableHeadProps) => {
     const ROW_SIZE = 48;
     const classes = useStyles();
     const { columns, onColumnClick } = props;
 
+    const tableHeadProps = (): TableHeadProps => {
+        let { columns, onColumnClick, ...rest } = props;
+        return rest;
+    }
+
     return (
-        <TableHead className={classes.thead} {...props}>
+        <TableHead className={classes.thead} {...tableHeadProps()}>
             <TableRow className={classes.row}>
                 {columns.map((column, colIndex) => {
                     return (

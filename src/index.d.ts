@@ -130,4 +130,11 @@ declare module '@jayjonesdev/react-material-ui-library' {
         size?: number;
     }
     export const Divider: React.FC<DividerProps & import('@material-ui/core').DividerProps>;
+
+    export interface LoadingOverlayProps {
+        label: string;
+        type: 'circular' | 'linear';
+        color?: "primary" | "secondary";
+    }
+    export const LoadingOverlay: React.FC<LoadingOverlayProps>;
 }
