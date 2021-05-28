@@ -17,12 +17,14 @@ export const Linear = Template.bind({});
 Linear.args = {
     label: 'Loading...',
     type: 'linear',
-    color: "primary"
+    color: "primary",
+    open: true
 };
 
 export const Circular = Template.bind({});
 Circular.args = {
     label: 'Loading...',
     type: 'circular',
-    color: "primary"
+    color: "primary",
+    open: true
 };

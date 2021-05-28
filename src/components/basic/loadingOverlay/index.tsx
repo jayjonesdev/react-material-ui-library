@@ -1,13 +1,14 @@
 import React from 'react';
-import { Box, Typography, CircularProgress, LinearProgress } from '@material-ui/core';
+import { Box, Typography, CircularProgress, LinearProgress, Backdrop } from '@material-ui/core';
 import useStyles from './style';
 
 export default (props: IProps) => {
-    const { label, color, type } = props;
+    const { label, color, type, open } = props;
     const classes = useStyles();
 
     return (
-        <Box position="fixed" className={classes.root}>
+        <Backdrop className={classes.root} open={open} onClick={() => { }}>
+
             <Box
                 top={0}
                 left={0}
@@ -23,12 +24,13 @@ export default (props: IProps) => {
                     <LinearProgress color={color} className={classes.linear} />}
                 <Typography variant='h5' color={color}>{label}</Typography>
             </Box>
-        </Box>
+        </Backdrop>
     )
 }
 
 interface IProps {
     label: string;
+    open: boolean;
     type: 'circular' | 'linear';
     color?: "primary" | "secondary";
 }
