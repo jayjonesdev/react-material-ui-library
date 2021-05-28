@@ -133,6 +133,7 @@ declare module '@jayjonesdev/react-material-ui-library' {
 
     export interface LoadingOverlayProps {
         label: string;
+        open: boolean;
         type: 'circular' | 'linear';
         color?: "primary" | "secondary";
     }
