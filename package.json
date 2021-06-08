@@ -1,6 +1,6 @@
 {
   "name": "@jayjonesdev/react-material-ui-library",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "private": false,
   "dependencies": {
     "@date-io/date-fns": "1.3.13",
