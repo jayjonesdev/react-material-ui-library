@@ -97,6 +97,7 @@ declare module '@jayjonesdev/react-material-ui-library' {
     export const Form: React.FC<FormProps>;
 
     export interface TabBarProps {
+        elevation?: number;
         position?: "fixed" | "absolute" | "relative" | "static" | "sticky";
         backgroundColor?: "inherit" | "primary" | "secondary" | "default" | "transparent";
         tabs: { label?: string; icon?: React.ReactElement; id?: string; }[];
