@@ -40,7 +40,7 @@ CenteredTabs.args = {
     indicatorColor: "secondary",
     textColor: "secondary",
     centered: true,
-    variant: 'fullWidth'
+    variant: 'fullWidth',
 };
 
 export const IconTabs = Template.bind({});

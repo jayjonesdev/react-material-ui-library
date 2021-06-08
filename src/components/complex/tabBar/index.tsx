@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Tabs, Tab, TabsProps } from '@material-ui/core';
-import useStyles from './tabBar.style';
+import useStyles from './style';
 
 const TabBar: React.FC<IProps & TabsProps> = (props) => {
     const { tabs, backgroundColor = 'transparent', position = 'static', elevation = 4, handleChange } = props;
