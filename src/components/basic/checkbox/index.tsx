@@ -7,8 +7,8 @@ export default withStyles(theme => ({
     }
 }))((props: IProps & CheckboxProps) => (
     <div style={{ display: 'flex', alignItems: 'center' }}>
-        <MaterialCheckbox {...props} />
-        <ListItemText primary={props.label} />
+        <MaterialCheckbox data-testid='checkbox' {...props} />
+        <ListItemText data-testid='checkbox-label' primary={props.label} />
     </div>
 ));
 

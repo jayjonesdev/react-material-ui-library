@@ -5,11 +5,11 @@ const SimpleDialog: React.FC<IProps & DialogProps> = (props) => {
     const { title, content, textColor = 'textPrimary' } = props;
     return (
         <Dialog {...props}>
-            <DialogTitle>{title}</DialogTitle>
+            <DialogTitle data-testid='dialog-title'>{title}</DialogTitle>
             <DialogContent>
-                <DialogContentText color={textColor}>{content}</DialogContentText>
+                <DialogContentText data-testid='dialog-content' color={textColor}>{content}</DialogContentText>
             </DialogContent>
-            <DialogActions>{props.children}</DialogActions>
+            <DialogActions data-testid='dialog-children'>{props.children}</DialogActions>
         </Dialog>
     )
 }

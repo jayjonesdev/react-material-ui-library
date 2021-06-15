@@ -1,17 +1,17 @@
 import React from 'react';
 import { Accordion as MaterialAccordion, AccordionDetails, AccordionProps, AccordionSummary, Typography } from '@material-ui/core';
 import { ExpandMore as ExpandMoreIcon } from '@material-ui/icons';
-import useStyles from './accordion.style';
+import useStyles from './index.style';
 
 const Accordion: React.FC<IProps & AccordionProps> = (props) => {
     const classes = useStyles();
 
     return (
         <MaterialAccordion elevation={0} className={classes.root} {...props}>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />} >
-                <Typography variant={'body1'}>{props.title}</Typography>
+            <AccordionSummary data-testid='accordion-expand-button' expandIcon={<ExpandMoreIcon />} >
+                <Typography data-testid='accordion-title' variant={'body1'}>{props.title}</Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails data-testid='accordion-children'>
                 {props.children}
             </AccordionDetails>
         </MaterialAccordion>

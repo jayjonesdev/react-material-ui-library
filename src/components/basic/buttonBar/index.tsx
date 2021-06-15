@@ -1,10 +1,10 @@
 import React from 'react';
-import useStyles from './buttonBar.style';
+import useStyles from './index.style';
 
 const ButtonBar: React.FC<IProps> = (props) => {
     const classes = useStyles();
 
-    return (<div className={classes.root}>{props.children}</div>);
+    return (<div data-testid='button-bar-children' className={classes.root}>{props.children}</div>);
 }
 
 export default ButtonBar;
